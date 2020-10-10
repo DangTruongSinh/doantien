@@ -1,0 +1,67 @@
+2020-10-08 21:35:23.998  INFO 7824 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 7824 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-10-08 21:35:24.007  INFO 7824 --- [main] com.store.doan.DoanApplication           : The following profiles are active: initdata
+2020-10-08 21:35:26.910  INFO 7824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-08 21:35:27.348  INFO 7824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 372ms. Found 11 JPA repository interfaces.
+2020-10-08 21:35:29.835  INFO 7824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-08 21:35:29.862  INFO 7824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-08 21:35:29.863  INFO 7824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-08 21:35:30.075  INFO 7824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-08 21:35:30.076  INFO 7824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5850 ms
+2020-10-08 21:35:30.714  INFO 7824 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-08 21:35:30.876  INFO 7824 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-08 21:35:31.282  INFO 7824 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-08 21:35:31.517  INFO 7824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-08 21:35:48.257  INFO 12500 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 12500 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-10-08 21:35:48.265  INFO 12500 --- [main] com.store.doan.DoanApplication           : The following profiles are active: initdata
+2020-10-08 21:35:51.105  INFO 12500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-08 21:35:51.491  INFO 12500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 355ms. Found 11 JPA repository interfaces.
+2020-10-08 21:35:54.034  INFO 12500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-08 21:35:54.055  INFO 12500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-08 21:35:54.056  INFO 12500 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-08 21:35:54.273  INFO 12500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-08 21:35:54.273  INFO 12500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5835 ms
+2020-10-08 21:35:54.893  INFO 12500 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-08 21:35:55.055  INFO 12500 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-08 21:35:55.437  INFO 12500 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-08 21:35:55.654  INFO 12500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-08 21:35:57.376  INFO 12500 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-08 21:35:57.462  INFO 12500 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-08 21:36:00.224  INFO 12500 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.Role (class must be instantiated by Interceptor)
+2020-10-08 21:36:00.300  INFO 12500 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.OrderStatus (class must be instantiated by Interceptor)
+2020-10-08 21:36:00.514  INFO 12500 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.QuotationStatus (class must be instantiated by Interceptor)
+2020-10-08 21:36:01.209  INFO 12500 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-08 21:36:01.226  INFO 12500 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-08 21:36:03.245  WARN 12500 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-08 21:36:03.776  INFO 12500 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-08 21:36:05.561  INFO 12500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-08 21:36:05.564  INFO 12500 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 18.446 seconds (JVM running for 19.762)
+2020-10-08 21:36:05.595  INFO 12500 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-10-08 21:36:05.596  INFO 12500 --- [main] com.store.doan.config.InitDefaultData    : init default data!
+2020-10-08 21:36:06.783  INFO 12500 --- [main] com.store.doan.config.InitDefaultData    : init role success!
+2020-10-08 21:38:04.352  INFO 17364 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 17364 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-10-08 21:38:04.360  INFO 17364 --- [main] com.store.doan.DoanApplication           : The following profiles are active: initdata
+2020-10-08 21:38:06.588  INFO 17364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-08 21:38:06.968  INFO 17364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 345ms. Found 11 JPA repository interfaces.
+2020-10-08 21:38:09.689  INFO 17364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-08 21:38:09.723  INFO 17364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-08 21:38:09.724  INFO 17364 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-08 21:38:10.003  INFO 17364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-08 21:38:10.004  INFO 17364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5384 ms
+2020-10-08 21:38:10.639  INFO 17364 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-08 21:38:10.785  INFO 17364 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-10-08 21:38:11.168  INFO 17364 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-08 21:38:11.417  INFO 17364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-08 21:38:13.272  INFO 17364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-08 21:38:13.308  INFO 17364 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-08 21:38:15.085  INFO 17364 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.Role (class must be instantiated by Interceptor)
+2020-10-08 21:38:15.206  INFO 17364 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.OrderStatus (class must be instantiated by Interceptor)
+2020-10-08 21:38:15.407  INFO 17364 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.store.doan.model.QuotationStatus (class must be instantiated by Interceptor)
+2020-10-08 21:38:16.212  INFO 17364 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-08 21:38:16.226  INFO 17364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-08 21:38:18.090  WARN 17364 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-08 21:38:18.643  INFO 17364 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-08 21:38:20.905  INFO 17364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-08 21:38:20.908  INFO 17364 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 17.884 seconds (JVM running for 18.948)
+2020-10-08 21:38:20.973  INFO 17364 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-10-08 21:38:20.973  INFO 17364 --- [main] com.store.doan.config.InitDefaultData    : init default data!
+2020-10-08 21:38:20.974  INFO 17364 --- [main] com.store.doan.config.InitDefaultData    : init default data  success!
