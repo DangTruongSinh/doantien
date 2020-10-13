@@ -21,4 +21,9 @@ public class QuotationStatus extends Status{
 		// TODO Auto-generated constructor stub
 	}
 
+	public QuotationStatus() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 }

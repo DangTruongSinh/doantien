@@ -2,27 +2,32 @@ package com.store.doan.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import lombok.Data;
 
-@Data
 @Entity
-public class HistoryOrders{
+@Data
+public class UserNotification{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
 	
+	
 	@ManyToOne
-	@JoinColumn(name = "orderedItem_id")
+	@JoinColumn
 	private OrderedItem orderedItem;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn
-	HistoryQuotation historyQuotation;
+	private User user; 
+	
+	@ManyToOne
+	@JoinColumn
+	private Notification notification;
+	
+	private boolean isViewed;
 }

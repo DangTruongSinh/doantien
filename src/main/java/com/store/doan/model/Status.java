@@ -23,6 +23,11 @@ public abstract class Status {
 		super();
 		this.name = name;
 	}
+
+	public Status() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

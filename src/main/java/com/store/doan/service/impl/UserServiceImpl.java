@@ -22,7 +22,7 @@ import com.store.doan.model.User;
 import com.store.doan.repository.RoleRepository;
 import com.store.doan.repository.UserRepository;
 import com.store.doan.service.IUserService;
-import com.store.doan.utils.UtilsCustom;
+import com.store.doan.utils.UtilsCommon;
 
 @Transactional
 @Service
@@ -39,7 +39,7 @@ public class UserServiceImpl implements IUserService {
 	public UserDTO createNew(UserDTO userDTO) {
 
 		// haspassword
-		String passwordHash = UtilsCustom.hashPassword(userDTO.getPassword());
+		String passwordHash = UtilsCommon.hashPassword(userDTO.getPassword());
 		userDTO.setPassword(passwordHash);
 		//
 		User user = new User();
@@ -80,7 +80,7 @@ public class UserServiceImpl implements IUserService {
 	public void changePassword(UserDTO userDTO) {
 		User user = userRepository.findById(userDTO.getId())
 				.orElseThrow(() -> new NotFoundException(MessageError.USER_NOT_FOUND));
-		String hashPassword = UtilsCustom.hashPassword(userDTO.getPassword());
+		String hashPassword = UtilsCommon.hashPassword(userDTO.getPassword());
 		user.setPassword(hashPassword);
 		userRepository.save(user);
 		logger.info("%s change password success!", user.getUsername());
@@ -88,7 +88,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public Page<UserDTO> findUsers(String username, Pageable pageable) {
-		username = UtilsCustom.concatString("%", username, "%");
+		username = UtilsCommon.concatString("%", username, "%");
 		Page<User> page = userRepository.findByUsernameLike(username, pageable);
 		List<UserDTO> userDTOs = new ArrayList<UserDTO>();
 		page.getContent().forEach(user -> {

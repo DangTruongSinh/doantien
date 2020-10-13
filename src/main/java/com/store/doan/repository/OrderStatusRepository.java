@@ -7,5 +7,6 @@ import com.store.doan.model.OrderStatus;
 
 @Repository
 public interface OrderStatusRepository extends JpaRepository<OrderStatus, Long>{
-
+	
+	OrderStatus findByName(String name);
 }

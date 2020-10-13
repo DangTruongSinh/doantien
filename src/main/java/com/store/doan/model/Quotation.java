@@ -1,39 +1,50 @@
 package com.store.doan.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Quotation {
+@Data
+public  class Quotation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter
 	private Long id;
 	
-	@Getter @Setter
-	private String bOCode;
+	@Column(length = 50)
+	private String boCode;
 	
 	@Column(length = 50)
-	@Getter @Setter
 	private String nameOfCustomer;
 	
-	@Getter @Setter
 	private int quantity;
+	
+	@Column(length = 20)
+	private String phoneNumber;
+	
+	@Column(length = 50)
+	private String email;
+	
+	@Column(length = 50)
+	private String price;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_status_quotation")
-	@Getter @Setter
 	private QuotationStatus qStatus;
+	
+	@OneToMany(mappedBy = "quotation", cascade = {CascadeType.DETACH, CascadeType.REMOVE, CascadeType.REFRESH})
+	private List<HistoryQuotation> histories;
+	
+	private boolean isDeleted;
 }

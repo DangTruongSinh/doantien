@@ -26,7 +26,7 @@ import com.store.doan.repository.HistorySuppliesRepository;
 import com.store.doan.repository.SuppliesRepository;
 import com.store.doan.repository.UserRepository;
 import com.store.doan.service.ISuppliesService;
-import com.store.doan.utils.UtilsCustom;
+import com.store.doan.utils.UtilsCommon;
 
 @Service
 @Transactional
@@ -63,11 +63,34 @@ public class SuppliesServiceImpl implements ISuppliesService{
 	public SuppliesDTO update(SuppliesDTO suppliesDTO, Long idUser) {
 		// TODO Auto-generated method stub
 		// update supplies information 
-		Supplies supplies = new Supplies();
+		Supplies supplies = suppliesRepository.findById(suppliesDTO.getId()).orElseThrow(() -> new NotFoundException(MessageError.SUPPLIES_NOT_FOUND));
+		StringBuilder contentUpdate = new StringBuilder();
+		contentUpdate.append(MessageHistory.SUPPLIES_UPDATED);
+		if(!suppliesDTO.getProvider().equals(supplies.getProvider())) {
+			contentUpdate.append("Nhà cung cấp:");
+			contentUpdate.append(supplies.getProvider());
+			contentUpdate.append(" -> ");
+			contentUpdate.append(suppliesDTO.getProvider());
+		} else if(!suppliesDTO.getPrice().equals(supplies.getPrice())) {
+			contentUpdate.append(". Giá:");
+			contentUpdate.append(supplies.getPrice());
+			contentUpdate.append(" -> ");
+			contentUpdate.append(suppliesDTO.getPrice());
+		} else if(!suppliesDTO.getCaculateUnit().equals(supplies.getCaculateUnit())) {
+			contentUpdate.append(". Đơn vị tính:");
+			contentUpdate.append(supplies.getCaculateUnit());
+			contentUpdate.append(" -> ");
+			contentUpdate.append(suppliesDTO.getCaculateUnit());
+		} else if(!suppliesDTO.getDate().toString().equals(supplies.getDate().toString())) {
+			contentUpdate.append(". Ngày ứng với đơn vị tính:");
+			contentUpdate.append(supplies.getDate().toString());
+			contentUpdate.append(" -> ");
+			contentUpdate.append(suppliesDTO.getDate().toString());
+		}
 		BeanUtils.copyProperties(suppliesDTO, supplies);
 		suppliesRepository.saveAndFlush(supplies);
 		// create history
-		createHistory(idUser, supplies, MessageHistory.SUPPLIES_UPDATED);
+		createHistory(idUser, supplies, contentUpdate.toString());
 		logger.info("update supplies success by account id: {}", idUser);
 		return suppliesDTO;
 	}
@@ -116,7 +139,7 @@ public class SuppliesServiceImpl implements ISuppliesService{
 	@Override
 	public Page<SuppliesDTO> findProvider(String provider, Pageable pageable) {
 		// TODO Auto-generated method stub
-		provider = UtilsCustom.concatString("%", provider, "%");
+		provider = UtilsCommon.concatString("%", provider, "%");
 		Page<Supplies> pageSupplies = suppliesRepository.findByProviderLike(provider, pageable);
 		List<SuppliesDTO> suppliesDTOs = new ArrayList<SuppliesDTO>();
 		pageSupplies.getContent().forEach(supplies -> {

@@ -7,5 +7,5 @@ import com.store.doan.model.QuotationStatus;
 
 @Repository
 public interface QuotationStatusRepository extends JpaRepository<QuotationStatus, Long>{
-
+	public QuotationStatus findByName(String name);
 }

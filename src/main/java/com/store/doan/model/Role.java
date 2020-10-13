@@ -2,6 +2,7 @@ package com.store.doan.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Role {
 	@Column(length = 15)
 	private String name;
 	
-	@OneToMany(mappedBy = "role")
+	@OneToMany(mappedBy = "role", cascade = {CascadeType.DETACH, CascadeType.REMOVE, CascadeType.REFRESH})
 	private List<User> users;
 
 	public Role(String name) {

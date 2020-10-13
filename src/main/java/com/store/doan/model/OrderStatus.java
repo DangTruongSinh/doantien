@@ -20,6 +20,11 @@ public class OrderStatus extends Status{
 		super(name);
 		// TODO Auto-generated constructor stub
 	}
+
+	public OrderStatus() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

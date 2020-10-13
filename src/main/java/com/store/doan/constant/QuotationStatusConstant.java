@@ -1,7 +1,7 @@
 package com.store.doan.constant;
 
 public enum QuotationStatusConstant {
-	Reject("Từ chối"), Confirm("Đồng ý");
+	UNKNOWN("Chưa xác định"),REJECT("Từ chối"), CONFIRM("Đồng ý");
 	
 	String value;
 	

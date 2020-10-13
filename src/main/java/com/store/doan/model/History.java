@@ -2,6 +2,7 @@ package com.store.doan.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +29,7 @@ public abstract class History {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	@Column(columnDefinition = "text")
 	private String content;
 	
 	@CreationTimestamp
