@@ -15,5 +15,5 @@ public interface IQuotationService {
 	
 	public void delete(Long id, Long idUser);
 	
-	Page<QuotationDTO> find(String provider, Pageable pageable);
+	Page<QuotationDTO> find(String provider, Pageable pageable, boolean isDeleted, String qstatus, String orderStatus);
 }

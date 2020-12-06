@@ -12,6 +12,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
@@ -26,6 +27,7 @@ public abstract class History {
 	private Long id;
 	
 	@OneToOne
+	@Lazy
 	@JoinColumn(name = "user_id")
 	private User user;
 	
@@ -33,5 +35,7 @@ public abstract class History {
 	private String content;
 	
 	@CreationTimestamp
-	private LocalDateTime dateTime;
+	private LocalDateTime dateTime = LocalDateTime.now();
+	
+	private String action;
 }

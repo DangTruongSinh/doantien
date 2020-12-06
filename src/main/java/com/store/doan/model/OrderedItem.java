@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,10 +15,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import lombok.Data;
 
 @Entity
 @Data
+@EntityListeners(AuditingEntityListener.class)
 public class OrderedItem {
 	
 	@Id
@@ -37,20 +42,21 @@ public class OrderedItem {
 	
 	private String filePathDrawing;
 	
+	@CreationTimestamp
 	private LocalDateTime orderDate;
 	
 	private LocalDateTime processDate;
 	
-	private LocalDateTime deliveryDate;
+	private String deliveryDate;
+	
+	private LocalDateTime realDeliveryDate;
 	
 	private boolean isDelete = false;
 	
 	@Column(columnDefinition = "text")
 	private String note;
 	
-	@OneToMany(mappedBy = "orderedItem", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.DETACH})
-	private List<HistoryOrders> historyOrders;
-	
+
 	@OneToMany(mappedBy = "orderedItem", cascade = CascadeType.ALL)
 	private List<UserNotification> userNotifications;
 	

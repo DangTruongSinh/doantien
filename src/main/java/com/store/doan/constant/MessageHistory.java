@@ -3,7 +3,7 @@ package com.store.doan.constant;
 public class MessageHistory {
 	
 	// supplies
-	public static String SUPPLIES_CREATED = "Vật tư được tạo";
+	public static String SUPPLIES_CREATED = "Đã tạo vật tư";
 	public static String SUPPLIES_UPDATED = "Vật tư được chỉnh sửa. Nội dung chỉnh sửa:";
 	public static String SUPPLIES_DELETED = "Vật tư bị xóa";
 	

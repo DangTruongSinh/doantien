@@ -1,5 +1,6 @@
 package com.store.doan.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.constraints.Size;
@@ -13,7 +14,11 @@ import lombok.Data;
 public class QuotationDTO {
 	
 	private Long id;
-
+	
+	private Long idQuotation;
+	
+	private String name;
+	
 	@Size(max = 50, message = "length's bOCode is not except 50 characters!")
 	private String boCode;
 
@@ -34,4 +39,14 @@ public class QuotationDTO {
 	private String price;
 	
 	private List<HistoryDTO> quotationHistories;
+	
+	private LocalDateTime createdDate;
+	
+	private String reason;
+	
+	private String statusOrder;
+	
+	private String deliveryDate;
+	
+	private LocalDateTime realDeliveryDate;
 }

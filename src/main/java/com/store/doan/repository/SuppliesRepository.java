@@ -9,5 +9,5 @@ import com.store.doan.model.Supplies;
 
 @Repository
 public interface SuppliesRepository extends JpaRepository<Supplies, Long>{
-	Page<Supplies> findByProviderLike(String provider, Pageable pageable);
+	Page<Supplies> findByProviderLikeAndIsDeleteIs(String provider, Pageable pageable, boolean isDelete);
 }

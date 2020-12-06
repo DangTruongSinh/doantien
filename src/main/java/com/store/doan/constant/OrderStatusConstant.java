@@ -1,7 +1,7 @@
 package com.store.doan.constant;
 
 public enum OrderStatusConstant {
-	WaitHandle("Chờ xử lý"), WaitProcess("Chờ thi công"), Processing("Đang thi công"), FishedProcess("Thi công hoàn tất"), WaitShip("Vận chuyển"), FishedShip("Vận chuyển thành công");
+	WaitProcess("Chờ thi công"), Processing("Đang thi công"), FishedProcess("Thi công hoàn tất"), WaitShip("Giao hàng");
 	
 	String value;
 	

@@ -4,7 +4,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.store.doan.dto.SuppliesDTO;
-import com.store.doan.dto.SuppliesDetailDTO;
 
 public interface ISuppliesService {
 	
@@ -16,7 +15,5 @@ public interface ISuppliesService {
 	
 	public void delete(Long id, Long idUser);
 	
-	public SuppliesDetailDTO viewDetail(Long id);
-	
-	Page<SuppliesDTO> findProvider(String provider, Pageable pageable);
+	Page<SuppliesDTO> findProvider(String provider, Pageable pageable, boolean isDelete);
 }

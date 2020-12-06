@@ -15,6 +15,8 @@ public class UserDTO {
 	@Min(value = 0)
 	private Long id;
 	
+	private String name;
+	
 	@Size(max = 50, message = "length's username is not except 50 characters!")
 	@NotBlank(message = "username is required!")
 	private String username;
@@ -40,9 +42,10 @@ public class UserDTO {
 		this.phone = phone;
 		this.role = role;
 	}
-
+	
 	public UserDTO() {
 		
 	}
+	
 
 }

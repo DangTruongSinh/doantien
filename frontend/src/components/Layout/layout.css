@@ -1,0 +1,88 @@
+.header_top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* position: fixed; */
+    display: block;
+    float: left;
+    margin: 10px 0;
+    vertical-align: middle;
+    /* top: 0; */
+    z-index: 99999;
+    /* box-sizing: border-box; */
+    /* padding: 0px 60px 0px 0px; */
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    background-size: 100% 100%;
+}
+
+.logo img {
+    height: 100px;
+    position: relative;
+    z-index: 99;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    /* height: 110px; */
+}
+
+.banner-m {
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+.fl {
+    float: left;
+}
+
+.inf_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+.inf_header p:nth-child(1) {
+    background: url("./images/hotline.png") no-repeat left center;
+    min-height: 37px;
+}
+
+.inf_header p:nth-child(2) {
+    background: url("./images/email.png") no-repeat left center;
+    min-height: 33px;
+    padding: 10px 0 10px 45px;
+}
+
+.inf_header p {
+    font-size: 14px;
+    color: #282828;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    padding: 0px 0 0 50px;
+}
+
+.inf_header span {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #d40202;
+}
+
+.inf_header p:nth-child(2) span {
+    color: #02497b;
+}

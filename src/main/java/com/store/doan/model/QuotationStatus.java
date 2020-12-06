@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 public class QuotationStatus extends Status{
 	
-	@OneToMany(mappedBy = "qStatus")
+	@OneToMany(mappedBy = "quotationStatus")
 	private List<Quotation> quotations;
 
 	public QuotationStatus(String name) {

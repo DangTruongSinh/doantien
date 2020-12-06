@@ -22,12 +22,15 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(nullable = false, length = 50)
 	private String username;
-	@Column(nullable = false, length = 20)
+
 	private String password;
+	
 	@Column(length = 20)
 	private String phone;
+	
 	@Column(length = 50)
 	private String fullName;
 	
@@ -37,4 +40,5 @@ public class User {
 	
 	@OneToMany(mappedBy = "notification", cascade = CascadeType.ALL)
 	private List<UserNotification> userNotification;
+	
 }

@@ -20,7 +20,7 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 15)
+	@Column(length = 30)
 	private String name;
 	
 	@OneToMany(mappedBy = "role", cascade = {CascadeType.DETACH, CascadeType.REMOVE, CascadeType.REFRESH})

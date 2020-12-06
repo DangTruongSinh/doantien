@@ -1,23 +1,33 @@
 package com.store.doan.service;
 
+import java.util.List;
+
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.store.doan.constant.OrderStatusConstant;
+import com.store.doan.dto.OrderStatusDTO;
 import com.store.doan.dto.OrderedItemDTO;
-import com.store.doan.dto.QuotationDTO;
 
 public interface IOrderedItemService {
 	
-	 Page<QuotationDTO> findBySearch(Long userId, Pageable pageable);
+	 Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser);
 	
-	 void deleteByNotAdmin(Long userId, Long idItem);
 	 
-	 void delete(Long userId, Long idItem);
 	 
 	 OrderedItemDTO update(Long userId, OrderedItemDTO orderedItemDTO);
 	 
-	 void updateStatusOrderedItem(Long userId, Long idItem, OrderStatusConstant orderStatusConstant);
+	 void updateStatusOrderedItem(Long userId, OrderStatusDTO orderedItemDTO);
 	 
-	 OrderedItemDTO viewDetail(Long userId, Long idItem);
+	 OrderedItemDTO viewDetail(Long idItem);
+	 
+	 OrderedItemDTO viewDetailAndChangeStatusNotification(Long idItem, Long idNotification, Long idUser);
+
+	 List<OrderStatusDTO> findAllStatus();
+	 
+	 OrderedItemDTO update(OrderedItemDTO orderDTO, MultipartFile multipartFile, Long idUser);
+	 
+	 Resource loadFileAsResource(String fileName) throws Exception;
+	 
 }

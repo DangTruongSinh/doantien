@@ -30,7 +30,7 @@ public class CustomGlobalHandleException extends ResponseEntityExceptionHandler{
 	static final Logger logger = LoggerFactory.getLogger(CustomGlobalHandleException.class);
 	
 	@ExceptionHandler(NotFoundException.class)
-	public void handleNotFoundException(HttpServletResponse response) throws IOException
+	static public void handleNotFoundException(HttpServletResponse response) throws IOException
 	{
 		response.sendError(HttpStatus.NOT_FOUND.value());
 	}
@@ -41,12 +41,12 @@ public class CustomGlobalHandleException extends ResponseEntityExceptionHandler{
 		response.sendError(HttpStatus.BAD_REQUEST.value());
 	}
 	
-	@ExceptionHandler(Exception.class)
-	public void handleRestException(HttpServletResponse response) throws IOException
-	{
-		response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"server is error, please try other time");
-	}
-	
+//	@ExceptionHandler(Exception.class)
+//	public void handleRestException(HttpServletResponse response) throws IOException
+//	{
+//		response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"server is error, please try other time");
+//	}
+//	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest webRequest) {

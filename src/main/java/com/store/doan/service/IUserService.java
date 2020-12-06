@@ -1,7 +1,6 @@
 package com.store.doan.service;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import com.store.doan.dto.UserDTO;
 
@@ -15,7 +14,7 @@ public interface IUserService {
 	void changePassword(UserDTO userDTO);
 	
 	
-	Page<UserDTO> findUsers(String username, Pageable pageable);
+	Page<UserDTO> findUsers(String username, Integer page, Integer size, Long id);
 	
 	void delete(Long id);
 }

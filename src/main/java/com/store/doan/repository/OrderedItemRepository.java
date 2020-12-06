@@ -11,4 +11,5 @@ import com.store.doan.model.OrderedItem;
 public interface OrderedItemRepository extends JpaRepository<OrderedItem, Long>{
 	
 	Optional<OrderedItem> findByQuotationId(Long id);
+	
 }

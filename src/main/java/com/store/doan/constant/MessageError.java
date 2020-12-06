@@ -8,4 +8,5 @@ public class MessageError {
 	public static final String ORDERED_ITEM_NOT_FOUND = "ordered item not found exception!"; 
 	public static final String REJECTED_ITEM_NOT_FOUND = "rejected item not found exception!"; 
 	public static final String QUOTATION_NOT_FOUND = "Quotation not found exception!"; 
+	public static final String NOTIFICATION_NOT_FOUND = "Notification not found exception!";
 }

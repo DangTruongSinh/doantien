@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js	"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+        position: relative
+    }
+    
+    #msform .action-button-previous:hover,
+    #msform .action-button-previous:focus {
+        box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+    }
+    
+    select.list-dt {
+        border: none;
+        outline: 0;
+        border-bottom: 1px solid #ccc;
+        padding: 2px 5px 3px 5px;
+        margin: 2px
+    }
+    
+    select.list-dt:focus {
+        border-bottom: 2px solid skyblue
+    }
+    
+    .card {
+        z-index: 0;
+        border: none;
+        border-radius: 0.5rem;
+        position: relative
+    }
+    
+    .fs-title {
+        font-size: 25px;
+        color: #2C3E50;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: left
+    }
+    
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: lightgrey
+    }
+    
+    #progressbar .active {
+        color: #000000
+    }
+    
+    #progressbar li {
+        list-style-type: none;
+        font-size: 12px;
+        width: 16%;
+        float: left;
+        position: relative
+    }
+    
+    #progressbar #waitHandle:before {
+        font-family: FontAwesome;
+        content: "\f15c"
+    }
+    
+    #progressbar #waitProcess:before {
+        font-family: FontAwesome;
+        content: "\f04c"
+    }
+    
+    #progressbar #process:before {
+        font-family: FontAwesome;
+        content: "\f13d"
+    }
+    
+    #progressbar #fishedProcess:before {
+        font-family: FontAwesome;
+        content: "\f240"
+    }
+    
+    #progressbar #delivery:before {
+        font-family: FontAwesome;
+        content: "\f0d1"
+    }
+    
+    #progressbar #fishedDelivery:before {
+        font-family: FontAwesome;
+        content: "\f00c"
+    }
+    
+    #progressbar li:before {
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+        display: block;
+        font-size: 18px;
+        color: #ffffff;
+        background: lightgray;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        padding: 2px
+    }
+    
+    #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: lightgray;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        z-index: -1
+    }
+    
+    #progressbar li.active:before,
+    #progressbar li.active:after {
+        background: skyblue
+    }
+</style>
+
+<body>
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Tình trạng đơn hàng</strong></h2>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="waitHandle"><strong>Chờ xử lý</strong></li>
+                                    <li id="waitProcess"><strong>Chờ thi công</strong></li>
+                                    <li id="process"><strong>Đang thi công</strong></li>
+                                    <li id="fishedProcess"><strong>Thi công hoàn tất</strong></li>
+                                    <li id="delivery"><strong>Vận chuyển</strong></li>
+                                    <li id="fishedDelivery"><strong>Vận chuyển thành công</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        let index = 1;
+        $(".next").click(function() {
+            //Add Class Active
+            $("#progressbar").children().eq(index).addClass("active");
+            if (index < 6)
+                index++;
+
+        });
+
+    });
+</script>
+
+</html>

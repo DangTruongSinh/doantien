@@ -15,9 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.store.doan.constant.MessageError;
 import com.store.doan.constant.MessageHistory;
-import com.store.doan.dto.HistoryDTO;
+import com.store.doan.constant.TypeAction;
 import com.store.doan.dto.SuppliesDTO;
-import com.store.doan.dto.SuppliesDetailDTO;
 import com.store.doan.exception.NotFoundException;
 import com.store.doan.model.HistorySupplies;
 import com.store.doan.model.Supplies;
@@ -50,7 +49,7 @@ public class SuppliesServiceImpl implements ISuppliesService{
 		BeanUtils.copyProperties(suppliesDTO, supplies);
 		suppliesRepository.saveAndFlush(supplies);
 		//  history
-		createHistory(idUser, supplies, MessageHistory.SUPPLIES_CREATED);
+		createHistory(idUser, supplies, MessageHistory.SUPPLIES_CREATED, TypeAction.CREATE);
 		//
 		BeanUtils.copyProperties(supplies, suppliesDTO);
 		logger.info("create new supplies success by account id: {}", idUser);
@@ -66,31 +65,48 @@ public class SuppliesServiceImpl implements ISuppliesService{
 		Supplies supplies = suppliesRepository.findById(suppliesDTO.getId()).orElseThrow(() -> new NotFoundException(MessageError.SUPPLIES_NOT_FOUND));
 		StringBuilder contentUpdate = new StringBuilder();
 		contentUpdate.append(MessageHistory.SUPPLIES_UPDATED);
+		boolean flag = false;
+		if(!suppliesDTO.getName().equals(supplies.getName())) {
+			contentUpdate.append("Tên:");
+			contentUpdate.append(supplies.getName());
+			contentUpdate.append(" -> ");
+			contentUpdate.append(suppliesDTO.getName());
+			flag = true;
+		}  
 		if(!suppliesDTO.getProvider().equals(supplies.getProvider())) {
 			contentUpdate.append("Nhà cung cấp:");
 			contentUpdate.append(supplies.getProvider());
 			contentUpdate.append(" -> ");
 			contentUpdate.append(suppliesDTO.getProvider());
-		} else if(!suppliesDTO.getPrice().equals(supplies.getPrice())) {
+			flag = true;
+		}  
+		if(!suppliesDTO.getPrice().equals(supplies.getPrice())) {
 			contentUpdate.append(". Giá:");
 			contentUpdate.append(supplies.getPrice());
 			contentUpdate.append(" -> ");
 			contentUpdate.append(suppliesDTO.getPrice());
-		} else if(!suppliesDTO.getCaculateUnit().equals(supplies.getCaculateUnit())) {
+			flag = true;
+		} 
+		if(!suppliesDTO.getCaculateUnit().equals(supplies.getCaculateUnit())) {
 			contentUpdate.append(". Đơn vị tính:");
 			contentUpdate.append(supplies.getCaculateUnit());
 			contentUpdate.append(" -> ");
 			contentUpdate.append(suppliesDTO.getCaculateUnit());
-		} else if(!suppliesDTO.getDate().toString().equals(supplies.getDate().toString())) {
+			flag = true;
+		} 
+		if(!suppliesDTO.getDate().toString().equals(supplies.getDate().toString())) {
 			contentUpdate.append(". Ngày ứng với đơn vị tính:");
 			contentUpdate.append(supplies.getDate().toString());
 			contentUpdate.append(" -> ");
 			contentUpdate.append(suppliesDTO.getDate().toString());
+			flag = true;
 		}
 		BeanUtils.copyProperties(suppliesDTO, supplies);
 		suppliesRepository.saveAndFlush(supplies);
 		// create history
-		createHistory(idUser, supplies, contentUpdate.toString());
+		if(flag) {
+			createHistory(idUser, supplies, contentUpdate.toString(), TypeAction.UPDATE);
+		}
 		logger.info("update supplies success by account id: {}", idUser);
 		return suppliesDTO;
 	}
@@ -101,6 +117,7 @@ public class SuppliesServiceImpl implements ISuppliesService{
 		Supplies supplies = suppliesRepository.findById(id).orElseThrow(() -> new NotFoundException(MessageError.SUPPLIES_NOT_FOUND));
 		supplies.setDelete(true);
 		suppliesRepository.save(supplies);
+		createHistory(idUser, supplies, "xóa vật tư", TypeAction.DELETE);
 		logger.info("status delete of id's supplies: {} was updated  by user id: {}", id, idUser);
 	}
 
@@ -113,34 +130,10 @@ public class SuppliesServiceImpl implements ISuppliesService{
 	}
 
 	@Override
-	public SuppliesDetailDTO viewDetail(Long id) {
-		// TODO Auto-generated method stub
-		
-		// check role. if admin then use findbyId else if manager then use findByIDAndIsdelete 
-		
-		//
-		Supplies supplies = suppliesRepository.findById(id).orElseThrow(() -> new NotFoundException(MessageError.SUPPLIES_NOT_FOUND));
-		SuppliesDetailDTO result = new SuppliesDetailDTO();
-		BeanUtils.copyProperties(supplies, result);
-		List<HistoryDTO> histories = new ArrayList<HistoryDTO>();
-		List<HistorySupplies> historiesEntity = supplies.getLists(); 
-		historiesEntity.forEach(item -> {
-			HistoryDTO historyDTO = new HistoryDTO();
-			historyDTO.setContent(item.getContent());
-			historyDTO.setDate(item.getDateTime().toLocalDate());
-			historyDTO.setNameUser(item.getUser().getUsername());
-			historyDTO.setTime(item.getDateTime().toLocalTime());
-			histories.add(historyDTO);
-		});
-		result.setHistorys(histories);
-		return result;
-	}
-
-	@Override
-	public Page<SuppliesDTO> findProvider(String provider, Pageable pageable) {
+	public Page<SuppliesDTO> findProvider(String provider, Pageable pageable, boolean isDelete) {
 		// TODO Auto-generated method stub
 		provider = UtilsCommon.concatString("%", provider, "%");
-		Page<Supplies> pageSupplies = suppliesRepository.findByProviderLike(provider, pageable);
+		Page<Supplies> pageSupplies = suppliesRepository.findByProviderLikeAndIsDeleteIs(provider, pageable, isDelete);
 		List<SuppliesDTO> suppliesDTOs = new ArrayList<SuppliesDTO>();
 		pageSupplies.getContent().forEach(supplies -> {
 			SuppliesDTO suppliesDTO = new SuppliesDTO();
@@ -149,9 +142,10 @@ public class SuppliesServiceImpl implements ISuppliesService{
 		});
 		return new PageImpl<SuppliesDTO>(suppliesDTOs, pageable, pageSupplies.getTotalElements());
 	}
-	private void createHistory(Long idUser, Supplies supplies, String message) {
+	private void createHistory(Long idUser, Supplies supplies, String message, TypeAction type) {
 		HistorySupplies historySupplies = new HistorySupplies();
 		historySupplies.setContent(message);
+		historySupplies.setAction(type.name());
 		User user = userRepository.findById(idUser).orElseThrow(() -> new NotFoundException(MessageError.USER_NOT_FOUND));
 		historySupplies.setUser(user);
 		historySupplies.setSupplies(supplies);

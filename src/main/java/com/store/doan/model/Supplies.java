@@ -1,6 +1,5 @@
 package com.store.doan.model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -21,12 +20,14 @@ public class Supplies {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private String name;
+	
 	private String provider;
 	
 	@Column(length = 100)
 	private String price;
 	
-	private LocalDate date;
+	private String date;
 	
 	@Column(length = 50)
 	private String caculateUnit;

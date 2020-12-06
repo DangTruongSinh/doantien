@@ -26,7 +26,9 @@ public class CustomErrorAttributes extends DefaultErrorAttributes {
 		
 		// log info user thought webRequest
 		Throwable ex =  super.getError(webRequest);
-		ex.printStackTrace(); // print log errors to console
+		if(ex != null) {
+			ex.printStackTrace(); // print log errors to console
+		}
 		if(webRequest.getUserPrincipal() != null)
 			logger.error(webRequest.getUserPrincipal().getName(), ex);
 		// Let Spring handle the error first, we will modify later :)

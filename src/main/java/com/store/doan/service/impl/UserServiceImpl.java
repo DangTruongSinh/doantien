@@ -2,6 +2,7 @@ package com.store.doan.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +10,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -19,7 +23,10 @@ import com.store.doan.dto.UserDTO;
 import com.store.doan.exception.NotFoundException;
 import com.store.doan.model.Role;
 import com.store.doan.model.User;
+import com.store.doan.repository.HistoryQuotationRepository;
+import com.store.doan.repository.HistorySuppliesRepository;
 import com.store.doan.repository.RoleRepository;
+import com.store.doan.repository.UserNotificationRepository;
 import com.store.doan.repository.UserRepository;
 import com.store.doan.service.IUserService;
 import com.store.doan.utils.UtilsCommon;
@@ -32,14 +39,29 @@ public class UserServiceImpl implements IUserService {
 	UserRepository userRepository;
 	@Autowired
 	RoleRepository roleRepository;
-
+	
+	@Autowired
+	HistoryQuotationRepository historyQuotationRepository;
+	
+	@Autowired
+	HistorySuppliesRepository historySuppliesRepository;
+	
+	@Autowired
+	UserNotificationRepository userNotificationRepository;
+	
+	@Autowired
+	PasswordEncoder encoder;
+	
 	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Override
 	public UserDTO createNew(UserDTO userDTO) {
-
+		Optional<User> opUser = userRepository.findByUsername(userDTO.getUsername());
+		if(opUser.isPresent()) {
+			return null;
+		}
 		// haspassword
-		String passwordHash = UtilsCommon.hashPassword(userDTO.getPassword());
+		String passwordHash = encoder.encode(userDTO.getPassword());
 		userDTO.setPassword(passwordHash);
 		//
 		User user = new User();
@@ -80,31 +102,39 @@ public class UserServiceImpl implements IUserService {
 	public void changePassword(UserDTO userDTO) {
 		User user = userRepository.findById(userDTO.getId())
 				.orElseThrow(() -> new NotFoundException(MessageError.USER_NOT_FOUND));
-		String hashPassword = UtilsCommon.hashPassword(userDTO.getPassword());
+		String hashPassword = encoder.encode(userDTO.getPassword());
 		user.setPassword(hashPassword);
 		userRepository.save(user);
 		logger.info("%s change password success!", user.getUsername());
 	}
 
 	@Override
-	public Page<UserDTO> findUsers(String username, Pageable pageable) {
+	public Page<UserDTO> findUsers(String username, Integer page, Integer size, Long idUser) {
 		username = UtilsCommon.concatString("%", username, "%");
-		Page<User> page = userRepository.findByUsernameLike(username, pageable);
+		Sort sort = Sort.by("id").descending();
+		Pageable pageable = PageRequest.of(page, size, sort);
+		Page<User> result = userRepository.findByUsernameLike(username, pageable);
 		List<UserDTO> userDTOs = new ArrayList<UserDTO>();
-		page.getContent().forEach(user -> {
-			UserDTO userDto = new UserDTO();
-			BeanUtils.copyProperties(user, userDto);
-			userDto.setRole(user.getRole().getName());
-			userDTOs.add(userDto);
+		result.getContent().forEach(user -> {
+			if(user.getId() != idUser) {
+				UserDTO userDto = new UserDTO();
+				BeanUtils.copyProperties(user, userDto);
+				userDto.setRole(user.getRole().getName());
+				userDto.setPassword("");
+				userDTOs.add(userDto);
+			}
+			
 		});
-		return new PageImpl<UserDTO>(userDTOs, pageable, page.getTotalElements());
+		return new PageImpl<UserDTO>(userDTOs, pageable, result.getTotalElements() - 1);
 	}
 
 	@Override
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		User user = userRepository.findById(id).orElseThrow(() -> new NotFoundException(MessageError.USER_NOT_FOUND));
-		userRepository.delete(user);
+		userNotificationRepository.deleteByUserId(id);
+		historyQuotationRepository.deleteByUserId(id);
+		historySuppliesRepository.deleteByUserId(id);
+		userRepository.deleteById(id);
 	}
 
 }
