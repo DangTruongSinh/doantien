@@ -232,8 +232,8 @@ function SuppliesComponent() {
             <Table className={classes.table} aria-label="custom pagination table">
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Id</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên vật tư</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Nhà cung cấp</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Đơn vị tính</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Giá</TableCell>
@@ -262,7 +262,7 @@ function SuppliesComponent() {
                         <TableCell align="center" style ={{fontSize: "14px"}}>
                             {formatDate(row.date)}
                         </TableCell>
-                        <TableCell align="center" style ={{fontSize: "14px"}}>
+                        <TableCell align="center" style ={{fontSize: "14px", whiteSpace:"nowrap"}}>
                             <Button variant="contained" onClick = {() => handleEdit(index)} style={{marginRight:"10px", background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}>
                                 Chỉnh sửa
                             </Button>

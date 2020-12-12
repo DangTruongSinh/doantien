@@ -19,7 +19,7 @@ export default function LoginCustom(props) {
     return(
         <div class="limiter">
             <div class="container-login100">
-                <div class="wrap-login100" style={{paddingBottom:"150px"}}>
+                <div class="wrap-login100" style={{paddingBottom:"30px"}}>
                     <div class="login100-pic js-tilt" style={{width: "420px"}}>
                         <img src={logo} alt="IMG" style={{height: "280px"}}/>
                     </div>

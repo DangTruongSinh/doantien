@@ -29,12 +29,10 @@ public  class Quotation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 50)
 	private String boCode;
 	
 	private String name;
 	
-	@Column(length = 50)
 	private String nameOfCustomer;
 	
 	private int quantity;
@@ -42,10 +40,8 @@ public  class Quotation {
 	@Column(length = 20)
 	private String phoneNumber;
 	
-	@Column(length = 50)
 	private String email;
 	
-	@Column(length = 50)
 	private String price;
 	
 	@ManyToOne

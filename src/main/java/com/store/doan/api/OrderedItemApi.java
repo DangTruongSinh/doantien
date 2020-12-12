@@ -87,20 +87,32 @@ public class OrderedItemApi {
 		UserDetailsImpl userDetails =
 				(UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		OrderedItemDTO orderedItemDTO = new OrderedItemDTO();
-		orderedItemDTO.setName(name);
+		
 		orderedItemDTO.setIdQuotation(idQuotation);
 		orderedItemDTO.setStatus(status);
-		orderedItemDTO.setNameOfCustomer(nameOfCustomer);
-		orderedItemDTO.setPhoneNumber(phoneNumber);
-		orderedItemDTO.setEmail(email);
-		orderedItemDTO.setAddress(address);
-		orderedItemDTO.setBoCode(boCode);
-		orderedItemDTO.setSpecifications(specifications);
-		orderedItemDTO.setCaculateUnit(caculateUnit);
+		if(!"null".equals(name))
+			orderedItemDTO.setName(name);
+		if(!"null".equals(nameOfCustomer))
+			orderedItemDTO.setNameOfCustomer(nameOfCustomer);
+		if(!"null".equals(phoneNumber))
+			orderedItemDTO.setPhoneNumber(phoneNumber);
+		if(!"null".equals(email))
+			orderedItemDTO.setEmail(email);
+		if(!"null".equals(address))
+			orderedItemDTO.setAddress(address);
+		if(!"null".equals(boCode))
+			orderedItemDTO.setBoCode(boCode);
+		if(!"null".equals(specifications))
+			orderedItemDTO.setSpecifications(specifications);
+		if(!"null".equals(caculateUnit))
+			orderedItemDTO.setCaculateUnit(caculateUnit);
 		orderedItemDTO.setQuantity(quantity);
-		orderedItemDTO.setPrice(price);
-		orderedItemDTO.setNote(note);
-		orderedItemDTO.setDeliveryDate(deliveryDate);
+		if(!"null".equals(price))
+			orderedItemDTO.setPrice(price);
+		if(!"null".equals(note))
+			orderedItemDTO.setNote(note);
+		if(!"null".equals(deliveryDate))
+			orderedItemDTO.setDeliveryDate(deliveryDate);
 		orderedItemDTO = iOrderedItemService.update(orderedItemDTO, file, userDetails.getId());
 		return orderedItemDTO;
 	}

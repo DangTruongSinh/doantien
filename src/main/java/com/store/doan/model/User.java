@@ -23,15 +23,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false)
 	private String username;
 
 	private String password;
 	
-	@Column(length = 20)
 	private String phone;
 	
-	@Column(length = 50)
 	private String fullName;
 	
 	@ManyToOne

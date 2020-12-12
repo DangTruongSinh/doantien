@@ -84,10 +84,6 @@ function SupplyHistoriesComponent(props) {
     const handleClose = () => {
         setOpen(false);
     };
-    useEffect(() => {
-        console.log("use effect is runnn");
-        
-    }, [])
     return (
         <div>
         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >

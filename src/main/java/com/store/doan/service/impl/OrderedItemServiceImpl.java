@@ -263,6 +263,12 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 		// save history
 		boolean flag = false;
 		StringBuilder bodyChange = new StringBuilder();
+		if(orderedItem.getSpecifications() != null && "null".equals(orderedItem.getSpecifications())) {
+			orderedItem.setSpecifications(null);
+		}
+		if(orderedItem.getCaculateUnit() != null && "null".equals(orderedItem.getCaculateUnit())) {
+			orderedItem.setCaculateUnit(null);
+		}
 		if (orderedItem.getDeliveryDate() != null
 				&& !orderedItem.getDeliveryDate().equals(orderDTO.getDeliveryDate())) {
 			bodyChange.append(". Ngày giao hàng: ");
@@ -304,12 +310,14 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 				flag = true;
 			}
 		}
-		if (orderedItem.getNote() == null || !orderedItem.getNote().equals(orderDTO.getNote())) {
-			bodyChange.append(". ghi chú: ");
-			bodyChange.append(orderedItem.getNote());
-			bodyChange.append("->");
-			bodyChange.append(orderDTO.getNote());
-			flag = true;
+		if ((orderedItem.getNote() != null && orderDTO.getNote() != null)) {
+			if(orderedItem.getNote().equals(orderDTO.getNote())) {
+				bodyChange.append(". ghi chú: ");
+				bodyChange.append(orderedItem.getNote());
+				bodyChange.append("->");
+				bodyChange.append(orderDTO.getNote());
+				flag = true;
+			}
 		}
 		if (orderedItem.getStatus() != null && !orderedItem.getStatus().getName().equals(orderDTO.getStatus())) {
 			bodyChange.append(". tình trạng: ");

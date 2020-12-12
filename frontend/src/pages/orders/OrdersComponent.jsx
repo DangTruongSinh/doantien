@@ -236,7 +236,7 @@ function OrdersComponent(props) {
         <>
         <div  style={{display:"flex"}}>
             <div style={{display:"flex", marginLeft: "auto"}}>
-                <TextField size="small" value={serchBoCode} onChange={(e) => {setSearchBoCode(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập mã PO"/>
+                <TextField size="small" value={serchBoCode} onChange={(e) => {setSearchBoCode(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập tên vật tư"/>
                 <Button variant="contained" style={{backgroundColor: "#22349a", color:"white", marginLeft: "10px"}} onClick={handleSearch}>Tìm kiếm</Button>
             </div>
         </div>
@@ -244,9 +244,9 @@ function OrdersComponent(props) {
             <Table className={classes.table} aria-label="custom pagination table">
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Id</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Mã PO</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên vật tư</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>BBG Số</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tình trạng</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Số lượng</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Thông số kỹ thuật</TableCell>
@@ -268,7 +268,7 @@ function OrdersComponent(props) {
                             {row.boCode != 'null' ? row.boCode : ""}
                         </TableCell>
                         <TableCell component="th" scope="row" align="center" style ={{fontSize: "14px"}}>
-                            <span style={{padding:"10px", 
+                            <span style={{whiteSpace:"nowrap", padding:"10px", 
                             backgroundColor: handleBackgroundForOrderStatus(status[index])}}>
                                 {status[index]}</span> 
                         </TableCell>
@@ -291,10 +291,10 @@ function OrdersComponent(props) {
                                 aria-haspopup="true"
                                 variant="contained"
                                 color="primary"
-                                style={{background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}
+                                style={{whiteSpace:"nowrap", background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}
                                 onClick={(e) => handleClick(e, row.id, index, row.note)}
                             >
-                                Chọn hành động
+                                hành động
                             </Button>
                             <StyledMenu
                                 id="customized-menu"

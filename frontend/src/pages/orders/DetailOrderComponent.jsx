@@ -5,7 +5,7 @@ import OrderService from '../../api/OrderService';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import Loader from '../../components/loader';
-
+import { useHistory } from "react-router-dom";
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -130,11 +130,16 @@ export default function DetailOrderComponent(props) {
         let local = moment(stillUtc).local().format('YYYY-MM-DD'); 
         return local;
     }
+    let history = useHistory();
+    history.back = true;
     return (
         <div>
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-md-12">
+                            <button style={{fontSize: "20px", color:"blue", textDecoration: "underline"}} onClick={() => history.goBack()}>Quay lại</button>
+                        </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
@@ -179,7 +184,7 @@ export default function DetailOrderComponent(props) {
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="">Mã bản vẽ</label>
+                                        <label for="">BBG Số</label>
                                         <input type="text" class="form-control" value={boCode != 'null' ? boCode : ""} onChange={(e) => setBoCode(e.target.value)}/>
                                     </div>
                                     <div class="col-6 form-group">

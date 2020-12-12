@@ -42,6 +42,9 @@ import RejectedItemService from '../../api/RejectedItemService';
 import HistoryComponent from '../commons/HistoryComponent';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/loader';
+
+import { useHistory } from "react-router-dom";
+let numberRun = 0;
 const StyledMenu = withStyles({
     paper: {
         border: '1px solid #d3d4d5',
@@ -175,7 +178,7 @@ function SuppliesComponent(props) {
     const [orderStatus, setOrderStatus] =  useState([]);
     const [typeOrderStatus, setTypeOrderStatus] =  useState("All");
     let [load, setLoad] = useState(false);
-
+    let history = useHistory();
     const handleClick = (event, id, index) => {
         setAnchorEl(event.currentTarget);
         setIdItem(id);
@@ -205,14 +208,39 @@ function SuppliesComponent(props) {
         setPropQuotation(null);
         setOpenAddNew(true);
     }
+    
     useEffect(() => {
         setLoad(true);
-        getDataFromApi(page, rowsPerPage);
+        let searchName = ""; 
+        let isDelete = false;
+        let status =  "";
+        let typeFilter2 = "UNKNOWN";
+        if(history.back){
+                numberRun = numberRun + 1;
+                if(numberRun == 2){
+                    history.back = false;
+                    numberRun = 0;
+                }     
+                searchName = localStorage.getItem("searchUserName");
+                isDelete = localStorage.getItem("isDeleteByAdmin");
+                status = localStorage.getItem("typeOrderStatus");
+                typeFilter2 = "CONFIRM";
+                setTypeFilter(typeFilter2);
+                setSearchUserName(searchName);
+                setIsDeleteByAdmin(isDelete);
+                OrderService.getStatus().then(r => {
+                    setTypeOrderStatus(status? status : 'All');
+                    setOrderStatus(r.data);
+                }).catch(e => {
+                    console.log(e);
+                })
+            }
+        getDataFromApi(0, 5, searchName, isDelete, typeFilter2, status);
     }, []);
-    const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type = false, typeFilter="UNKNOWN", orderStatus="") => {
+    const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type = false, typeFilter1="UNKNOWN", orderStatus="") => {
         console.log(page1, rowsPerPage1, type);
         setAnchorEl(null);
-        QuotationService.getQuotations(page1, rowsPerPage1, fieldSearch, type, typeFilter, orderStatus).then(result => {
+        QuotationService.getQuotations(page1, rowsPerPage1, fieldSearch, type, typeFilter1, orderStatus).then(result => {
             setLoad(false);
             setQuotations(result.data.content);
             settotalElements(result.data.totalElements);
@@ -300,6 +328,10 @@ function SuppliesComponent(props) {
         
     }
     function handleGoToOrderClick(){
+        const status = typeOrderStatus === 'All' ? '' : typeOrderStatus;
+        localStorage.setItem('isDeleteByAdmin', isDeleteByAdmin);
+        localStorage.setItem('typeOrderStatus', status);
+        localStorage.setItem('searchUserName', searchUserName);
         props.history.push(`/app/order/${idItem}`);
     }
     function handleSetOpenEdit(){
@@ -423,9 +455,9 @@ function SuppliesComponent(props) {
             <Table className={classes.table} aria-label="custom pagination table">
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Id</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Mã PO</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên vật tư</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>BBG Số</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tên khách hàng</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Số lượng</TableCell>
                         {(typeFilter === 'CONFIRM') && <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tình trạng</TableCell>}
@@ -454,7 +486,7 @@ function SuppliesComponent(props) {
                         </TableCell>
                         {
                             (typeFilter === 'CONFIRM') &&
-                            <TableCell  align="center" style ={{fontSize: "14px"}}>
+                            <TableCell  align="center" style ={{fontSize: "14px", whiteSpace: "nowrap"}}>
                                 <span style={{padding:"10px", backgroundColor: handleBackgroundForOrderStatus(row.statusOrder)}}>{row.statusOrder}</span> 
                             </TableCell>
                         }
@@ -470,7 +502,7 @@ function SuppliesComponent(props) {
                                 aria-haspopup="true"
                                 variant="contained"
                                 color="primary"
-                                style={{background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}
+                                style={{whiteSpace: "nowrap", background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}
                                 onClick={(e) => handleClick(e, row.id, index)}
                             >
                                 Hành động

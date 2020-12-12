@@ -208,7 +208,7 @@ function AccountsComponent() {
             <Table className={classes.table} aria-label="custom pagination table">
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Id</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tài khoản</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Quyền</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Họ và tên</TableCell>
@@ -234,7 +234,7 @@ function AccountsComponent() {
                         <TableCell align="center" style ={{fontSize: "14px"}}>
                             {row.phone}
                         </TableCell>
-                        <TableCell align="center" >
+                        <TableCell align="center" style={{whiteSpace:"nowrap"}}>
                                 <Button variant="contained" onClick = {() => handleEdit(index)} style={{marginRight:"8px", background: "#ffc107 linear-gradient(180deg,#ffca2c,#ffc107) repeat-x"}}>
                                     Chỉnh sửa
                                 </Button>

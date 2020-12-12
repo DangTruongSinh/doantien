@@ -50,6 +50,13 @@ export default function ReasonDialogComponent(props){
     const handleClose = () => {
         setOpen(false);
     };
+
+    function handleMessage(){
+        console.log('hello: ', messageReason);
+        if(messageReason === 'null')
+            return '';
+        return messageReason;
+    }
     return(
         <>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} >
@@ -59,7 +66,7 @@ export default function ReasonDialogComponent(props){
                 <DialogContent dividers >
                     <Grid container>
                         <Grid item xs={12} style={{width:"500px"}}>
-                            <TextareaAutosize readOnly={true} aria-label="minimum height" rowsMin={4} value={messageReason} onChange={(e) => setMessageReason(e.target.value)} style={{width:"100%"}} />
+                            <TextareaAutosize readOnly={true} aria-label="minimum height" rowsMin={4} value={handleMessage()} onChange={(e) => setMessageReason(e.target.value)} style={{width:"100%"}} />
                         </Grid>
                     </Grid>
                 </DialogContent>

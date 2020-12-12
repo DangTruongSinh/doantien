@@ -204,8 +204,8 @@ function AddNewSupplieComponent(props) {
             <DialogContent dividers >
             <Grid container>
                 <Grid item xs={12} style={{width:"500px"}}>
-                    <TextField value={name} onChange={(e) => {setName(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên đơn hàng" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
-                    <TextField value={boCode} onChange={(e) => {setBoCode(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập mã PO" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
+                    <TextField value={name} onChange={(e) => {setName(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên vật tư" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
+                    <TextField value={boCode} onChange={(e) => {setBoCode(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập số BBG" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
                     <TextField value={nameOfCustomer} onChange={(e) => {setNameOfCustomer(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên khách hàng" style={{margin:"10px 0px 10px 0px"}} error ={errorCaculate} helperText = {errorCaculate && messageValidate}/>
                     <TextField value={quantity} onChange={(e) => {setQuantity(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập số lượng" style={{margin:"10px 0px 10px 0px"}} error ={errorPrice} helperText = {errorPrice && messageValidate}/>
                     <TextField value={price} onChange={(e) => {setPrice(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập giá" style={{margin:"10px 0px 10px 0px"}} error ={errorPrice} helperText = {errorPrice && messageValidate}/>

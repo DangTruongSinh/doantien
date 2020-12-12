@@ -33,7 +33,6 @@ public class OrderedItem {
 
 	private String specifications;
 	
-	@Column(length = 20)
 	private String caculateUnit;
 	
 	@ManyToOne

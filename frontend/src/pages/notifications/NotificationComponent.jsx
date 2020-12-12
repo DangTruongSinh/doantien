@@ -199,7 +199,7 @@ function NotificationComponent(props) {
             <Table className={classes.table} aria-label="custom pagination table">
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Id</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Mã PO</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Nội dung thông báo</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Ngày tạo</TableCell>
