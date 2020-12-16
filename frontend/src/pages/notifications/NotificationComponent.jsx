@@ -115,7 +115,6 @@ function NotificationComponent(props) {
     let [load, setLoad] = useState(false);
 
     const handleChangePage = (event, newPage) => {
-        console.log('page change notification:');
         setLoad(true);
         setPage(newPage);
         getDataFromApi(newPage, rowsPerPage, isView);
@@ -135,8 +134,6 @@ function NotificationComponent(props) {
     }, []);
     const getDataFromApi =  (page1, rowsPerPage1, isView1) => {
         NotificationService.getNotifications(page1, rowsPerPage1, isView1).then(r => {
-            console.log('data ne');
-            console.log(notification);           
             setNotification(r.data.content);
             settotalElements(r.data.totalElements);
             setLoad(false);

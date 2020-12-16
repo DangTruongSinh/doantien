@@ -1,161 +1,40 @@
-2020-12-11 07:15:48.157  INFO 12624 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 12624 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 07:15:48.353  INFO 12624 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 07:15:54.988  INFO 12624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 07:15:55.723  INFO 12624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 688ms. Found 12 JPA repository interfaces.
-2020-12-11 07:16:02.565  INFO 12624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 07:16:02.691  INFO 12624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 07:16:02.693  INFO 12624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 07:16:03.498  INFO 12624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 07:16:03.498  INFO 12624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14604 ms
-2020-12-11 07:16:04.147  WARN 12624 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 07:16:05.578  INFO 12624 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 07:16:06.191  INFO 12624 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 07:16:09.981  INFO 12624 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 07:16:12.155  INFO 12624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 07:16:17.697  INFO 12624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 07:16:19.137  INFO 12624 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 07:16:26.245  INFO 12624 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 07:16:26.292  INFO 12624 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 07:16:37.587  INFO 12624 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e020dd1, org.springframework.security.web.context.SecurityContextPersistenceFilter@2110684a, org.springframework.security.web.header.HeaderWriterFilter@3e5ebdfe, org.springframework.web.filter.CorsFilter@4bbc02ef, org.springframework.security.web.authentication.logout.LogoutFilter@1c411474, com.store.doan.security.jwt.AuthTokenFilter@f9a5e3f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61d011e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c60c08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f0c1ae1, org.springframework.security.web.session.SessionManagementFilter@46591e98, org.springframework.security.web.access.ExceptionTranslationFilter@5ee581db, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65da4a5d]
-2020-12-11 07:16:38.089  INFO 12624 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 07:16:39.666  INFO 12624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 07:16:39.786  INFO 12624 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 54.546 seconds (JVM running for 56.537)
-2020-12-11 07:16:39.815  INFO 12624 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 21:51:52.970  INFO 22484 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 22484 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 21:51:52.982  INFO 22484 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 21:51:55.805  INFO 22484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 21:51:56.304  INFO 22484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 482ms. Found 12 JPA repository interfaces.
-2020-12-11 21:51:58.945  INFO 22484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 21:51:58.994  INFO 22484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 21:51:58.994  INFO 22484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 21:51:59.219  INFO 22484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 21:51:59.220  INFO 22484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6068 ms
-2020-12-11 21:51:59.395  WARN 22484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 21:51:59.939  INFO 22484 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 21:52:00.155  INFO 22484 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 21:52:00.933  INFO 22484 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 21:52:01.356  INFO 22484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 21:52:03.617  INFO 22484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 21:52:03.816  INFO 22484 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 21:52:07.954  INFO 22484 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 21:52:07.965  INFO 22484 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 21:52:11.530  INFO 22484 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40b54762, org.springframework.security.web.context.SecurityContextPersistenceFilter@43b4ec0c, org.springframework.security.web.header.HeaderWriterFilter@795faad, org.springframework.web.filter.CorsFilter@362cf66, org.springframework.security.web.authentication.logout.LogoutFilter@212e39ee, com.store.doan.security.jwt.AuthTokenFilter@36cfe107, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ee581db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2047adea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7809b43a, org.springframework.security.web.session.SessionManagementFilter@49a06087, org.springframework.security.web.access.ExceptionTranslationFilter@28dacf31, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d174189]
-2020-12-11 21:52:11.678  INFO 22484 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 21:52:12.043  INFO 22484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 21:52:12.046  INFO 22484 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 20.84 seconds (JVM running for 22.12)
-2020-12-11 21:52:12.066  INFO 22484 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 21:52:12.226  INFO 22484 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 21:52:12.227  INFO 22484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 21:52:12.239  INFO 22484 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
-2020-12-11 21:56:18.300  INFO 6080 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 6080 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 21:56:18.304  INFO 6080 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 21:56:20.095  INFO 6080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 21:56:20.328  INFO 6080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 215ms. Found 12 JPA repository interfaces.
-2020-12-11 21:56:21.994  INFO 6080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 21:56:22.009  INFO 6080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 21:56:22.010  INFO 6080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 21:56:22.217  INFO 6080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 21:56:22.217  INFO 6080 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3605 ms
-2020-12-11 21:56:22.379  WARN 6080 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 21:56:22.623  INFO 6080 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 21:56:22.710  INFO 6080 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 21:56:23.062  INFO 6080 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 21:56:23.251  INFO 6080 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 21:56:24.476  INFO 6080 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 21:56:24.520  INFO 6080 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 21:56:26.633  INFO 6080 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 21:56:26.652  INFO 6080 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 21:56:29.170  INFO 6080 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24dc150c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a06602f, org.springframework.security.web.header.HeaderWriterFilter@148b6f95, org.springframework.web.filter.CorsFilter@1d2d4d7a, org.springframework.security.web.authentication.logout.LogoutFilter@38cf4497, com.store.doan.security.jwt.AuthTokenFilter@ff4b223, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b6cc344, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c82ad22, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e020dd1, org.springframework.security.web.session.SessionManagementFilter@2047adea, org.springframework.security.web.access.ExceptionTranslationFilter@2c15034f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@362cf66]
-2020-12-11 21:56:29.294  INFO 6080 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 21:56:29.556  INFO 6080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 21:56:29.560  INFO 6080 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 11.863 seconds (JVM running for 12.487)
-2020-12-11 21:56:29.663  INFO 6080 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 21:56:29.735  INFO 6080 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 21:56:29.735  INFO 6080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 21:56:29.748  INFO 6080 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-2020-12-11 21:58:57.119  INFO 20244 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 20244 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 21:58:57.129  INFO 20244 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 21:58:59.326  INFO 20244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 21:58:59.649  INFO 20244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 300ms. Found 12 JPA repository interfaces.
-2020-12-11 21:59:01.880  INFO 20244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 21:59:01.905  INFO 20244 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 21:59:01.906  INFO 20244 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 21:59:02.128  INFO 20244 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 21:59:02.129  INFO 20244 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4814 ms
-2020-12-11 21:59:02.292  WARN 20244 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 21:59:02.675  INFO 20244 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 21:59:02.791  INFO 20244 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 21:59:03.236  INFO 20244 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 21:59:03.568  INFO 20244 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 21:59:04.912  INFO 20244 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 21:59:04.955  INFO 20244 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 21:59:08.738  INFO 20244 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 21:59:08.761  INFO 20244 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 21:59:13.775  INFO 20244 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64836643, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a6b214c, org.springframework.security.web.header.HeaderWriterFilter@3adb4cc8, org.springframework.web.filter.CorsFilter@981d9d2, org.springframework.security.web.authentication.logout.LogoutFilter@6a4d57b7, com.store.doan.security.jwt.AuthTokenFilter@1b881f1f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65fa56f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@914ab92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ad6448e, org.springframework.security.web.session.SessionManagementFilter@6ee07d7f, org.springframework.security.web.access.ExceptionTranslationFilter@72115c48, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46ab8e4b]
-2020-12-11 21:59:14.038  INFO 20244 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 21:59:14.442  INFO 20244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 21:59:14.445  INFO 20244 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 18.578 seconds (JVM running for 20.717)
-2020-12-11 21:59:14.476  INFO 20244 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 21:59:47.804  INFO 20244 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 21:59:47.804  INFO 20244 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 21:59:47.823  INFO 20244 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
-2020-12-11 22:05:56.892  INFO 26536 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 26536 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:05:56.899  INFO 26536 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:05:58.441  INFO 26536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:05:58.653  INFO 26536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 197ms. Found 12 JPA repository interfaces.
-2020-12-11 22:06:00.278  INFO 26536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:06:00.292  INFO 26536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:06:00.293  INFO 26536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:06:00.430  INFO 26536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:06:00.431  INFO 26536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3347 ms
-2020-12-11 22:06:00.550  WARN 26536 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:06:00.796  INFO 26536 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:06:00.902  INFO 26536 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:06:01.216  INFO 26536 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:06:01.398  INFO 26536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:06:02.453  INFO 26536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:06:02.490  INFO 26536 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:06:04.441  INFO 26536 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:06:04.452  INFO 26536 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:06:06.757  INFO 26536 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a552721, org.springframework.security.web.context.SecurityContextPersistenceFilter@2047adea, org.springframework.security.web.header.HeaderWriterFilter@2c15034f, org.springframework.web.filter.CorsFilter@3815a7d1, org.springframework.security.web.authentication.logout.LogoutFilter@43d6262c, com.store.doan.security.jwt.AuthTokenFilter@f9a5e3f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a06602f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1926f962, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24dc150c, org.springframework.security.web.session.SessionManagementFilter@2ecdcfe3, org.springframework.security.web.access.ExceptionTranslationFilter@77f4038c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ef46749]
-2020-12-11 22:06:06.890  INFO 26536 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:06:07.150  INFO 26536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:06:07.153  INFO 26536 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 10.912 seconds (JVM running for 11.618)
-2020-12-11 22:06:07.170  INFO 26536 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:08:49.355  INFO 26536 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:08:49.356  INFO 26536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:08:49.371  INFO 26536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-2020-12-11 22:17:01.474  INFO 17436 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 17436 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:17:01.484  INFO 17436 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:17:02.981  INFO 17436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:17:03.212  INFO 17436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 215ms. Found 12 JPA repository interfaces.
-2020-12-11 22:17:04.782  INFO 17436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:17:04.796  INFO 17436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:17:04.796  INFO 17436 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:17:04.927  INFO 17436 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:17:04.928  INFO 17436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3259 ms
-2020-12-11 22:17:05.066  WARN 17436 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:17:05.299  INFO 17436 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:17:05.434  INFO 17436 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:17:05.718  INFO 17436 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:17:05.883  INFO 17436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:17:06.917  INFO 17436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:17:06.949  INFO 17436 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:17:08.734  INFO 17436 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:17:08.744  INFO 17436 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:17:11.017  INFO 17436 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7809b43a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ee581db, org.springframework.security.web.header.HeaderWriterFilter@69f3e556, org.springframework.web.filter.CorsFilter@65da4a5d, org.springframework.security.web.authentication.logout.LogoutFilter@79617c3d, com.store.doan.security.jwt.AuthTokenFilter@362a6aa5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e5ebdfe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a06602f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fbe8fd3, org.springframework.security.web.session.SessionManagementFilter@43b4ec0c, org.springframework.security.web.access.ExceptionTranslationFilter@795faad, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@c30f26d]
-2020-12-11 22:17:11.147  INFO 17436 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:17:11.419  INFO 17436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:17:11.421  INFO 17436 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 10.576 seconds (JVM running for 11.267)
-2020-12-11 22:17:11.441  INFO 17436 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:17:22.012  INFO 17436 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:17:22.013  INFO 17436 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:17:22.029  INFO 17436 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
-2020-12-11 22:18:23.197 ERROR 17436 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-12-17 00:51:12.519  INFO 900 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 900 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-12-17 00:51:12.565  INFO 900 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
+2020-12-17 00:51:14.413  INFO 900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-17 00:51:14.780  INFO 900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 350ms. Found 12 JPA repository interfaces.
+2020-12-17 00:51:16.780  INFO 900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-17 00:51:16.798  INFO 900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-17 00:51:16.798  INFO 900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-17 00:51:16.933  INFO 900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-17 00:51:16.934  INFO 900 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4133 ms
+2020-12-17 00:51:17.071  WARN 900 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-17 00:51:17.356  INFO 900 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-17 00:51:17.462  INFO 900 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-17 00:51:17.815  INFO 900 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-17 00:51:17.997  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-17 00:51:19.183  INFO 900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-17 00:51:19.208  INFO 900 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-17 00:51:22.387  INFO 900 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-17 00:51:22.407  INFO 900 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-17 00:51:25.194  INFO 900 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2020-12-17 00:51:25.410  INFO 900 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fbe8fd3, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a6efe33, org.springframework.security.web.header.HeaderWriterFilter@1eb9d69a, org.springframework.web.filter.CorsFilter@1ab268bd, org.springframework.security.web.authentication.logout.LogoutFilter@49cceb19, com.store.doan.security.jwt.AuthTokenFilter@761f234c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71668a67, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46591e98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2fafa7b5, org.springframework.security.web.session.SessionManagementFilter@148b6f95, org.springframework.security.web.access.ExceptionTranslationFilter@17ae13d5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a984952]
+2020-12-17 00:51:25.614  INFO 900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-17 00:51:25.989  INFO 900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-17 00:51:25.991  INFO 900 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 14.204 seconds (JVM running for 14.875)
+2020-12-17 00:51:26.016  INFO 900 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-12-17 00:51:26.256  INFO 900 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-17 00:51:26.257  INFO 900 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-17 00:51:26.272  INFO 900 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2020-12-17 00:58:24.361 ERROR 900 --- [http-nio-8080-exec-5] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Bad credentials
+2020-12-17 00:58:24.432 ERROR 900 --- [http-nio-8080-exec-8] com.store.doan.security.jwt.JwtUtils     : Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2020-12-17 00:58:24.443 ERROR 900 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0] with root cause
 
-java.lang.NullPointerException: null
-	at com.store.doan.service.impl.OrderedItemServiceImpl.update(OrderedItemServiceImpl.java:307) ~[classes/:na]
-	at com.store.doan.api.OrderedItemApi.update(OrderedItemApi.java:116) ~[classes/:na]
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.store.doan.security.jwt.JwtUtils.refreshToken(JwtUtils.java:92) ~[classes/:na]
+	at com.store.doan.api.AuthController.refreshToken(AuthController.java:70) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
@@ -169,8 +48,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
@@ -247,11 +126,16 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
 
-2020-12-11 22:18:41.485 ERROR 17436 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-12-17 00:58:30.997 ERROR 900 --- [http-nio-8080-exec-10] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Bad credentials
+2020-12-17 00:58:31.040 ERROR 900 --- [http-nio-8080-exec-1] com.store.doan.security.jwt.JwtUtils     : Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2020-12-17 00:58:31.043 ERROR 900 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0] with root cause
 
-java.lang.NullPointerException: null
-	at com.store.doan.service.impl.OrderedItemServiceImpl.update(OrderedItemServiceImpl.java:307) ~[classes/:na]
-	at com.store.doan.api.OrderedItemApi.update(OrderedItemApi.java:116) ~[classes/:na]
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.store.doan.security.jwt.JwtUtils.refreshToken(JwtUtils.java:92) ~[classes/:na]
+	at com.store.doan.api.AuthController.refreshToken(AuthController.java:70) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
@@ -265,8 +149,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
@@ -343,11 +227,16 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
 
-2020-12-11 22:18:55.197 ERROR 17436 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-12-17 00:58:34.635 ERROR 900 --- [http-nio-8080-exec-3] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Bad credentials
+2020-12-17 00:58:34.677 ERROR 900 --- [http-nio-8080-exec-9] com.store.doan.security.jwt.JwtUtils     : Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2020-12-17 00:58:34.680 ERROR 900 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0] with root cause
 
-java.lang.NullPointerException: null
-	at com.store.doan.service.impl.OrderedItemServiceImpl.update(OrderedItemServiceImpl.java:307) ~[classes/:na]
-	at com.store.doan.api.OrderedItemApi.update(OrderedItemApi.java:116) ~[classes/:na]
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.store.doan.security.jwt.JwtUtils.refreshToken(JwtUtils.java:92) ~[classes/:na]
+	at com.store.doan.api.AuthController.refreshToken(AuthController.java:70) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
@@ -361,8 +250,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
@@ -439,41 +328,17 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
 
-2020-12-11 22:27:02.336  INFO 15380 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 15380 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:27:02.343  INFO 15380 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:27:03.807  INFO 15380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:27:04.015  INFO 15380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 195ms. Found 12 JPA repository interfaces.
-2020-12-11 22:27:05.562  INFO 15380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:27:05.577  INFO 15380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:27:05.577  INFO 15380 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:27:05.726  INFO 15380 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:27:05.726  INFO 15380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3223 ms
-2020-12-11 22:27:05.839  WARN 15380 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:27:06.056  INFO 15380 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:27:06.158  INFO 15380 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:27:06.434  INFO 15380 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:27:06.593  INFO 15380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:27:07.661  INFO 15380 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:27:07.697  INFO 15380 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:27:09.480  INFO 15380 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:27:09.489  INFO 15380 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:27:11.561  INFO 15380 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3ef46749, org.springframework.security.web.context.SecurityContextPersistenceFilter@2c15034f, org.springframework.security.web.header.HeaderWriterFilter@47e60b71, org.springframework.web.filter.CorsFilter@40b54762, org.springframework.security.web.authentication.logout.LogoutFilter@1f75fd1d, com.store.doan.security.jwt.AuthTokenFilter@53b7bf01, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@148b6f95, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65b73689, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@362cf66, org.springframework.security.web.session.SessionManagementFilter@77f4038c, org.springframework.security.web.access.ExceptionTranslationFilter@78bd02c8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74e4be21]
-2020-12-11 22:27:11.703  INFO 15380 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:27:12.335  INFO 15380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:27:12.340  INFO 15380 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 10.667 seconds (JVM running for 11.385)
-2020-12-11 22:27:12.364  INFO 15380 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:27:14.150  INFO 15380 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:27:14.151  INFO 15380 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:27:14.165  INFO 15380 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2020-12-11 22:27:32.509  INFO 15380 --- [http-nio-8080-exec-6] c.s.d.service.impl.QuotationServiceImpl  : user id: 1 had save success order with id 10
-2020-12-11 22:27:32.509  INFO 15380 --- [http-nio-8080-exec-6] c.s.d.service.impl.QuotationServiceImpl  : user id: 1 had save success quotation with id 13
-2020-12-11 22:27:36.909 ERROR 15380 --- [Thread-3] com.store.doan.utils.UtilsCommon         : send mail error with username account: tien
-2020-12-11 22:27:38.468  INFO 15380 --- [Thread-4] com.store.doan.utils.UtilsCommon         : send mail success with username account: dangtruongsinh123@gmail.com
-2020-12-11 22:27:42.373 ERROR 15380 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-12-17 00:58:51.172  INFO 900 --- [http-nio-8080-exec-2] c.s.doan.service.impl.UserServiceImpl    : %s change password success!
+2020-12-17 00:58:56.491 ERROR 900 --- [http-nio-8080-exec-7] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Bad credentials
+2020-12-17 00:58:56.538 ERROR 900 --- [http-nio-8080-exec-5] com.store.doan.security.jwt.JwtUtils     : Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2020-12-17 00:58:56.541 ERROR 900 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0] with root cause
 
-java.lang.NullPointerException: null
-	at com.store.doan.service.impl.OrderedItemServiceImpl.update(OrderedItemServiceImpl.java:307) ~[classes/:na]
-	at com.store.doan.api.OrderedItemApi.update(OrderedItemApi.java:116) ~[classes/:na]
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.store.doan.security.jwt.JwtUtils.refreshToken(JwtUtils.java:92) ~[classes/:na]
+	at com.store.doan.api.AuthController.refreshToken(AuthController.java:70) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
@@ -487,8 +352,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
@@ -565,11 +430,173 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
 
-2020-12-11 22:27:52.334 ERROR 15380 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+2020-12-17 00:59:22.780 ERROR 900 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 
-java.lang.NullPointerException: null
-	at com.store.doan.service.impl.OrderedItemServiceImpl.update(OrderedItemServiceImpl.java:307) ~[classes/:na]
-	at com.store.doan.api.OrderedItemApi.update(OrderedItemApi.java:116) ~[classes/:na]
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL contained a potentially malicious String "//"
+	at org.springframework.security.web.firewall.StrictHttpFirewall.rejectedBlacklistedUrls(StrictHttpFirewall.java:369) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:336) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
+
+2020-12-17 00:59:44.385 ERROR 900 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL contained a potentially malicious String "//"
+	at org.springframework.security.web.firewall.StrictHttpFirewall.rejectedBlacklistedUrls(StrictHttpFirewall.java:369) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:336) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
+
+2020-12-17 01:00:26.485 ERROR 900 --- [http-nio-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL contained a potentially malicious String "//"
+	at org.springframework.security.web.firewall.StrictHttpFirewall.rejectedBlacklistedUrls(StrictHttpFirewall.java:369) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:336) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
+
+2020-12-17 01:10:24.764  INFO 22812 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 22812 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-12-17 01:10:24.774  INFO 22812 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
+2020-12-17 01:10:28.203  INFO 22812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-17 01:10:28.623  INFO 22812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 386ms. Found 12 JPA repository interfaces.
+2020-12-17 01:10:31.107  INFO 22812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-17 01:10:31.142  INFO 22812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-17 01:10:31.143  INFO 22812 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-17 01:10:31.406  INFO 22812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-17 01:10:31.407  INFO 22812 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6439 ms
+2020-12-17 01:10:31.658  WARN 22812 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-17 01:10:32.304  INFO 22812 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-17 01:10:32.578  INFO 22812 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-17 01:10:33.111  INFO 22812 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-17 01:10:33.578  INFO 22812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-17 01:10:35.261  INFO 22812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-17 01:10:35.327  INFO 22812 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-17 01:10:38.429  INFO 22812 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-17 01:10:38.446  INFO 22812 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-17 01:10:43.147  INFO 22812 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2020-12-17 01:10:43.433  INFO 22812 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d200dce, org.springframework.security.web.context.SecurityContextPersistenceFilter@c3a1d7f, org.springframework.security.web.header.HeaderWriterFilter@3a36da5e, org.springframework.web.filter.CorsFilter@1a59500b, org.springframework.security.web.authentication.logout.LogoutFilter@63d14dbf, com.store.doan.security.jwt.AuthTokenFilter@14b4d90b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2111d7b9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d529bc0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e3c0627, org.springframework.security.web.session.SessionManagementFilter@6dc5e857, org.springframework.security.web.access.ExceptionTranslationFilter@62376bdd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13b5598b]
+2020-12-17 01:10:43.685  INFO 22812 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-17 01:10:44.232  INFO 22812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-17 01:10:44.236  INFO 22812 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 20.978 seconds (JVM running for 22.924)
+2020-12-17 01:10:44.273  INFO 22812 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-12-17 01:11:04.941  INFO 22812 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-17 01:11:04.942  INFO 22812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-17 01:11:04.959  INFO 22812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-12-17 01:23:45.756 ERROR 22812 --- [http-nio-8080-exec-5] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:45Z, a difference of 2286047754 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:45.764 ERROR 22812 --- [http-nio-8080-exec-6] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:45Z, a difference of 2286047764 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:45.777 ERROR 22812 --- [http-nio-8080-exec-6] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Full authentication is required to access this resource
+2020-12-17 01:23:45.777 ERROR 22812 --- [http-nio-8080-exec-5] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Full authentication is required to access this resource
+2020-12-17 01:23:45.921 ERROR 22812 --- [http-nio-8080-exec-8] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:45Z, a difference of 2286047921 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:45.923 ERROR 22812 --- [http-nio-8080-exec-9] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:45Z, a difference of 2286047923 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:46.614 ERROR 22812 --- [http-nio-8080-exec-1] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:46Z, a difference of 2286048613 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:46.615 ERROR 22812 --- [http-nio-8080-exec-1] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Full authentication is required to access this resource
+2020-12-17 01:23:46.648 ERROR 22812 --- [http-nio-8080-exec-2] com.store.doan.security.jwt.JwtUtils     : JWT token is expired: JWT expired at 2020-11-20T07:22:58Z. Current time: 2020-12-16T18:23:46Z, a difference of 2286048647 milliseconds.  Allowed clock skew: 0 milliseconds.
+2020-12-17 01:23:46.650 ERROR 22812 --- [http-nio-8080-exec-2] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Full authentication is required to access this resource
+2020-12-17 01:24:23.512 ERROR 22812 --- [http-nio-8080-exec-6] c.s.doan.security.jwt.AuthEntryPointJwt  : Unauthorized error: Bad credentials
+2020-12-17 01:24:23.536 ERROR 22812 --- [http-nio-8080-exec-5] com.store.doan.security.jwt.JwtUtils     : Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2020-12-17 01:24:23.557 ERROR 22812 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0] with root cause
+
+io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:235) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
+	at com.store.doan.security.jwt.JwtUtils.refreshToken(JwtUtils.java:92) ~[classes/:na]
+	at com.store.doan.api.AuthController.refreshToken(AuthController.java:70) ~[classes/:na]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_231]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:1.8.0_231]
@@ -583,8 +610,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.9.RELEASE.jar:5.2.9.RELEASE]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.38.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.38.jar:9.0.38]
@@ -661,173 +688,57 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.38.jar:9.0.38]
 	at java.lang.Thread.run(Unknown Source) [na:1.8.0_231]
 
-2020-12-11 22:33:41.849  INFO 17572 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 17572 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:33:41.857  INFO 17572 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:33:44.078  INFO 17572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:33:44.364  INFO 17572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 262ms. Found 12 JPA repository interfaces.
-2020-12-11 22:33:46.691  INFO 17572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:33:46.721  INFO 17572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:33:46.722  INFO 17572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:33:47.050  INFO 17572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:33:47.051  INFO 17572 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4980 ms
-2020-12-11 22:33:47.211  WARN 17572 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:33:47.668  INFO 17572 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:33:47.818  INFO 17572 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:33:48.144  INFO 17572 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:33:48.381  INFO 17572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:33:49.613  INFO 17572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:33:49.717  INFO 17572 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:33:53.219  INFO 17572 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:33:53.233  INFO 17572 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:33:56.763  INFO 17572 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ec176da, org.springframework.security.web.context.SecurityContextPersistenceFilter@33502cfe, org.springframework.security.web.header.HeaderWriterFilter@4f6a5cc9, org.springframework.web.filter.CorsFilter@33d2f9d3, org.springframework.security.web.authentication.logout.LogoutFilter@2ba4b32b, com.store.doan.security.jwt.AuthTokenFilter@25fcdcc6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@115924ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6dc7b7f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@677d4cea, org.springframework.security.web.session.SessionManagementFilter@296949c8, org.springframework.security.web.access.ExceptionTranslationFilter@2686a801, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45cddfd3]
-2020-12-11 22:33:56.917  INFO 17572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:33:57.294  INFO 17572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:33:57.299  INFO 17572 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 16.73 seconds (JVM running for 18.347)
-2020-12-11 22:33:57.369  INFO 17572 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:34:02.513  INFO 17572 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:34:02.514  INFO 17572 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:34:02.537  INFO 17572 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
-2020-12-11 22:36:46.882  INFO 19204 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 19204 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:36:46.888  INFO 19204 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:36:48.422  INFO 19204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:36:48.640  INFO 19204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203ms. Found 12 JPA repository interfaces.
-2020-12-11 22:36:50.210  INFO 19204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:36:50.225  INFO 19204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:36:50.226  INFO 19204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:36:50.388  INFO 19204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:36:50.388  INFO 19204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3316 ms
-2020-12-11 22:36:50.537  WARN 19204 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:36:50.761  INFO 19204 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:36:50.864  INFO 19204 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:36:51.170  INFO 19204 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:36:51.321  INFO 19204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:36:52.448  INFO 19204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:36:52.485  INFO 19204 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:36:54.433  INFO 19204 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:36:54.446  INFO 19204 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:36:56.668  INFO 19204 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6eb00cbe, org.springframework.security.web.context.SecurityContextPersistenceFilter@78bd02c8, org.springframework.security.web.header.HeaderWriterFilter@615ef20, org.springframework.web.filter.CorsFilter@74e4be21, org.springframework.security.web.authentication.logout.LogoutFilter@83e635f, com.store.doan.security.jwt.AuthTokenFilter@4e2109fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47e60b71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27a90ce5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d174189, org.springframework.security.web.session.SessionManagementFilter@65015a49, org.springframework.security.web.access.ExceptionTranslationFilter@3ea2f72e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@549d14fe]
-2020-12-11 22:36:56.788  INFO 19204 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:36:57.059  INFO 19204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:36:57.062  INFO 19204 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 10.807 seconds (JVM running for 11.511)
-2020-12-11 22:36:57.083  INFO 19204 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:37:35.682  INFO 19204 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:37:35.683  INFO 19204 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:37:35.698  INFO 19204 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
-2020-12-11 22:38:05.645 ERROR 19204 --- [Thread-3] com.store.doan.utils.UtilsCommon         : send mail error with username account: tien
-2020-12-11 22:38:08.300 ERROR 19204 --- [Thread-4] com.store.doan.utils.UtilsCommon         : send mail error with username account: dangtruongsinh123@gmail.com
-2020-12-11 22:41:48.181  INFO 23172 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 23172 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:41:48.187  INFO 23172 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
-2020-12-11 22:41:49.864  INFO 23172 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:41:50.082  INFO 23172 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 205ms. Found 12 JPA repository interfaces.
-2020-12-11 22:41:51.611  INFO 23172 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-12-11 22:41:51.627  INFO 23172 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-12-11 22:41:51.628  INFO 23172 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
-2020-12-11 22:41:51.806  INFO 23172 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-12-11 22:41:51.806  INFO 23172 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3414 ms
-2020-12-11 22:41:51.930  WARN 23172 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:41:52.188  INFO 23172 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:41:52.273  INFO 23172 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:41:52.609  INFO 23172 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:41:52.784  INFO 23172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:41:53.989  INFO 23172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:41:54.030  INFO 23172 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:41:56.302  INFO 23172 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:41:56.318  INFO 23172 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:41:58.695  INFO 23172 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@362cf66, org.springframework.security.web.context.SecurityContextPersistenceFilter@43b4ec0c, org.springframework.security.web.header.HeaderWriterFilter@795faad, org.springframework.web.filter.CorsFilter@7809b43a, org.springframework.security.web.authentication.logout.LogoutFilter@212e39ee, com.store.doan.security.jwt.AuthTokenFilter@78bad03b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ee581db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2047adea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65da4a5d, org.springframework.security.web.session.SessionManagementFilter@49a06087, org.springframework.security.web.access.ExceptionTranslationFilter@28dacf31, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@628bd77e]
-2020-12-11 22:41:58.811  INFO 23172 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:41:59.339  INFO 23172 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-12-11 22:41:59.342  INFO 23172 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 11.843 seconds (JVM running for 12.611)
-2020-12-11 22:41:59.364  INFO 23172 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:42:08.125  INFO 23172 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-12-11 22:42:08.125  INFO 23172 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-12-11 22:42:08.152  INFO 23172 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 27 ms
-2020-12-11 22:42:35.765 ERROR 23172 --- [Thread-3] com.store.doan.utils.UtilsCommon         : send mail error with username account: tien
-2020-12-11 22:42:36.593  INFO 23172 --- [Thread-4] com.store.doan.utils.UtilsCommon         : send mail success with username account: dangtruongsinh123@gmail.com
-2020-12-11 22:48:50.173  INFO 22220 --- [main] com.store.doan.DoanApplicationTests      : Starting DoanApplicationTests on DESKTOP-79K4QD0 with PID 22220 (started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 22:48:50.190  INFO 22220 --- [main] com.store.doan.DoanApplicationTests      : The following profiles are active: dev
-2020-12-11 22:48:53.385  INFO 22220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 22:48:53.786  INFO 22220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 342ms. Found 12 JPA repository interfaces.
-2020-12-11 22:48:55.573  INFO 22220 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 22:48:55.870  INFO 22220 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 22:48:56.365  INFO 22220 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 22:48:57.313  INFO 22220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 22:48:58.760  INFO 22220 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 22:48:59.044  INFO 22220 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 22:49:02.854  INFO 22220 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 22:49:02.882  INFO 22220 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:49:03.044  WARN 22220 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 22:49:06.305  INFO 22220 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2020-12-11 22:49:06.752  INFO 22220 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a8b7e11, org.springframework.security.web.context.SecurityContextPersistenceFilter@289a4b90, org.springframework.security.web.header.HeaderWriterFilter@7be62956, org.springframework.web.filter.CorsFilter@d229912, org.springframework.security.web.authentication.logout.LogoutFilter@3ad2883a, com.store.doan.security.jwt.AuthTokenFilter@2e44cb34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4746fb8c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@470135da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a06eeef, org.springframework.security.web.session.SessionManagementFilter@799971ac, org.springframework.security.web.access.ExceptionTranslationFilter@7507d96c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7977f046]
-2020-12-11 22:49:07.546  INFO 22220 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:49:08.134  INFO 22220 --- [main] com.store.doan.DoanApplicationTests      : Started DoanApplicationTests in 19.451 seconds (JVM running for 25.885)
-2020-12-11 22:49:08.161  INFO 22220 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 22:49:08.553  INFO 22220 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-11 22:49:08.563  INFO 22220 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 22:49:08.570  INFO 22220 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-12-11 22:49:08.592  INFO 22220 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-12-11 23:03:07.001  INFO 9972 --- [main] com.store.doan.DoanApplicationTests      : Starting DoanApplicationTests on DESKTOP-79K4QD0 with PID 9972 (started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 23:03:07.053  INFO 9972 --- [main] com.store.doan.DoanApplicationTests      : The following profiles are active: dev
-2020-12-11 23:03:09.543  INFO 9972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 23:03:09.850  INFO 9972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 264ms. Found 12 JPA repository interfaces.
-2020-12-11 23:03:11.990  INFO 9972 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 23:03:12.435  INFO 9972 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 23:03:13.009  INFO 9972 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 23:03:14.008  INFO 9972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 23:03:15.794  INFO 9972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 23:03:15.981  INFO 9972 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 23:03:19.181  INFO 9972 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 23:03:19.195  INFO 9972 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:03:19.457  WARN 9972 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 23:03:23.456  INFO 9972 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2020-12-11 23:03:24.010  INFO 9972 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bda1f0, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ff9f715, org.springframework.security.web.header.HeaderWriterFilter@1a3c4b3e, org.springframework.web.filter.CorsFilter@2211e731, org.springframework.security.web.authentication.logout.LogoutFilter@67a38, com.store.doan.security.jwt.AuthTokenFilter@2a984952, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cb194f5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bc52a41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73e399cc, org.springframework.security.web.session.SessionManagementFilter@470135da, org.springframework.security.web.access.ExceptionTranslationFilter@59c08cf1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d229912]
-2020-12-11 23:03:24.771  INFO 9972 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:03:25.320  INFO 9972 --- [main] com.store.doan.DoanApplicationTests      : Started DoanApplicationTests in 18.945 seconds (JVM running for 20.858)
-2020-12-11 23:03:25.347  INFO 9972 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 23:03:25.620  INFO 9972 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:03:25.627  INFO 9972 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:03:25.632  INFO 9972 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-12-11 23:03:25.661  INFO 9972 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-12-11 23:24:12.012  INFO 22160 --- [main] com.store.doan.DoanApplicationTests      : Starting DoanApplicationTests on DESKTOP-79K4QD0 with PID 22160 (started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 23:24:12.066  INFO 22160 --- [main] com.store.doan.DoanApplicationTests      : The following profiles are active: dev
-2020-12-11 23:24:13.906  INFO 22160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 23:24:14.193  INFO 22160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 268ms. Found 12 JPA repository interfaces.
-2020-12-11 23:24:15.505  INFO 22160 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 23:24:15.730  INFO 22160 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 23:24:15.992  INFO 22160 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 23:24:16.802  INFO 22160 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 23:24:18.281  INFO 22160 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 23:24:18.456  INFO 22160 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 23:24:22.300  INFO 22160 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 23:24:22.345  INFO 22160 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:24:22.562  WARN 22160 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 23:24:26.455  INFO 22160 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2020-12-11 23:24:27.203  INFO 22160 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3dd591b9, org.springframework.security.web.context.SecurityContextPersistenceFilter@74b7497b, org.springframework.security.web.header.HeaderWriterFilter@41d877bb, org.springframework.web.filter.CorsFilter@538905d2, org.springframework.security.web.authentication.logout.LogoutFilter@683fe7b5, com.store.doan.security.jwt.AuthTokenFilter@62b42406, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@308c65e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21698e5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e8c58fd, org.springframework.security.web.session.SessionManagementFilter@4ff9f715, org.springframework.security.web.access.ExceptionTranslationFilter@1a3c4b3e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dd66ff5]
-2020-12-11 23:24:28.185  INFO 22160 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:24:29.278  INFO 22160 --- [main] com.store.doan.DoanApplicationTests      : Started DoanApplicationTests in 17.93 seconds (JVM running for 19.853)
-2020-12-11 23:24:29.304  INFO 22160 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 23:24:29.889  INFO 22160 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:24:29.897  INFO 22160 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:24:29.904  INFO 22160 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-12-11 23:24:29.932  INFO 22160 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2020-12-11 23:49:59.311  INFO 21996 --- [main] com.store.doan.DoanApplicationTests      : Starting DoanApplicationTests on DESKTOP-79K4QD0 with PID 21996 (started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
-2020-12-11 23:49:59.381  INFO 21996 --- [main] com.store.doan.DoanApplicationTests      : The following profiles are active: dev
-2020-12-11 23:50:01.061  INFO 21996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-12-11 23:50:01.412  INFO 21996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 332ms. Found 12 JPA repository interfaces.
-2020-12-11 23:50:02.495  INFO 21996 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-12-11 23:50:02.625  INFO 21996 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
-2020-12-11 23:50:02.950  INFO 21996 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-12-11 23:50:03.669  INFO 21996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-12-11 23:50:04.798  INFO 21996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-12-11 23:50:04.842  INFO 21996 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-12-11 23:50:08.390  INFO 21996 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-12-11 23:50:08.489  INFO 21996 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:50:08.662  WARN 21996 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-12-11 23:50:12.541  INFO 21996 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2020-12-11 23:50:12.985  INFO 21996 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a8b7e11, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a3c4b3e, org.springframework.security.web.header.HeaderWriterFilter@30e143ff, org.springframework.web.filter.CorsFilter@d229912, org.springframework.security.web.authentication.logout.LogoutFilter@5814b4fb, com.store.doan.security.jwt.AuthTokenFilter@731e0bff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3be46d9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7323dce7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a06eeef, org.springframework.security.web.session.SessionManagementFilter@59c08cf1, org.springframework.security.web.access.ExceptionTranslationFilter@7210f559, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7977f046]
-2020-12-11 23:50:13.928  INFO 21996 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:50:14.750  INFO 21996 --- [main] com.store.doan.DoanApplicationTests      : Started DoanApplicationTests in 16.057 seconds (JVM running for 18.006)
-2020-12-11 23:50:14.773  INFO 21996 --- [main] com.store.doan.config.InitDefaultData    : app ready!
-2020-12-11 23:50:15.177  INFO 21996 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-12-11 23:50:15.187  INFO 21996 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-12-11 23:50:15.193  INFO 21996 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-12-11 23:50:15.250  INFO 21996 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-12-17 01:32:13.968  INFO 23132 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 23132 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-12-17 01:32:13.977  INFO 23132 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
+2020-12-17 01:32:16.975  INFO 23132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-17 01:32:17.313  INFO 23132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 315ms. Found 12 JPA repository interfaces.
+2020-12-17 01:32:20.131  INFO 23132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-17 01:32:20.168  INFO 23132 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-17 01:32:20.169  INFO 23132 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-17 01:32:20.549  INFO 23132 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-17 01:32:20.550  INFO 23132 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6346 ms
+2020-12-17 01:32:20.861  WARN 23132 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-17 01:32:21.415  INFO 23132 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-17 01:32:21.585  INFO 23132 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-17 01:32:22.050  INFO 23132 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-17 01:32:22.388  INFO 23132 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-17 01:32:23.923  INFO 23132 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-17 01:32:23.968  INFO 23132 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-17 01:32:27.584  INFO 23132 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-17 01:32:27.603  INFO 23132 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-17 01:32:31.561  INFO 23132 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2020-12-17 01:32:31.895  INFO 23132 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23b3afb4, org.springframework.security.web.context.SecurityContextPersistenceFilter@3013e1e8, org.springframework.security.web.header.HeaderWriterFilter@30d944d8, org.springframework.web.filter.CorsFilter@2162598, org.springframework.security.web.authentication.logout.LogoutFilter@65871cfd, com.store.doan.security.jwt.AuthTokenFilter@663e1144, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61cff1e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47800bd7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3cf1b5fb, org.springframework.security.web.session.SessionManagementFilter@2fd409c1, org.springframework.security.web.access.ExceptionTranslationFilter@3b7b099b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f3b11e6]
+2020-12-17 01:32:32.175  INFO 23132 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-17 01:32:32.740  INFO 23132 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-17 01:32:32.744  INFO 23132 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 20.229 seconds (JVM running for 21.51)
+2020-12-17 01:32:32.780  INFO 23132 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-12-17 01:32:51.514  INFO 23132 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-17 01:32:51.515  INFO 23132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-17 01:32:51.541  INFO 23132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2020-12-17 01:40:44.311  INFO 22052 --- [main] com.store.doan.DoanApplication           : Starting DoanApplication on DESKTOP-79K4QD0 with PID 22052 (F:\fullstack-springboot-react\project-for-tien\doan\target\classes started by 16119 in F:\fullstack-springboot-react\project-for-tien\doan)
+2020-12-17 01:40:44.315  INFO 22052 --- [main] com.store.doan.DoanApplication           : The following profiles are active: dev
+2020-12-17 01:40:45.805  INFO 22052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-17 01:40:46.029  INFO 22052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 208ms. Found 12 JPA repository interfaces.
+2020-12-17 01:40:47.618  INFO 22052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-17 01:40:47.633  INFO 22052 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-17 01:40:47.633  INFO 22052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-12-17 01:40:47.771  INFO 22052 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-17 01:40:47.773  INFO 22052 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3270 ms
+2020-12-17 01:40:47.929  WARN 22052 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-17 01:40:48.234  INFO 22052 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-17 01:40:48.320  INFO 22052 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.21.Final
+2020-12-17 01:40:48.673  INFO 22052 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-12-17 01:40:48.867  INFO 22052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-12-17 01:40:49.991  INFO 22052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-12-17 01:40:50.021  INFO 22052 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-12-17 01:40:52.110  INFO 22052 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-17 01:40:52.124  INFO 22052 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-17 01:40:54.934  INFO 22052 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2020-12-17 01:40:55.094  INFO 22052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2890e479, org.springframework.security.web.context.SecurityContextPersistenceFilter@78bd02c8, org.springframework.security.web.header.HeaderWriterFilter@615ef20, org.springframework.web.filter.CorsFilter@6eb00cbe, org.springframework.security.web.authentication.logout.LogoutFilter@83e635f, com.store.doan.security.jwt.AuthTokenFilter@4e2109fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47e60b71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27a90ce5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74e4be21, org.springframework.security.web.session.SessionManagementFilter@65015a49, org.springframework.security.web.access.ExceptionTranslationFilter@3ea2f72e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5600a278]
+2020-12-17 01:40:55.272  INFO 22052 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-17 01:40:55.590  INFO 22052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-17 01:40:55.593  INFO 22052 --- [main] com.store.doan.DoanApplication           : Started DoanApplication in 11.929 seconds (JVM running for 12.541)
+2020-12-17 01:40:55.613  INFO 22052 --- [main] com.store.doan.config.InitDefaultData    : app ready!
+2020-12-17 01:41:00.966  INFO 22052 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-17 01:41:00.966  INFO 22052 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-12-17 01:41:00.983  INFO 22052 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms

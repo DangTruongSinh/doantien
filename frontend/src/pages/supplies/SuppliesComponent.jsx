@@ -143,9 +143,7 @@ function SuppliesComponent() {
         getDataFromApi(page, rowsPerPage);
     }, []);
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type=false) => {
-        console.log(page1, rowsPerPage1, type);
         SupplieSerice.getSupplies(page1, rowsPerPage1, fieldSearch, type).then(result => {
-            console.log(result);
             setLoad(false);
             setSupplies(result.data.content);
             settotalElements(result.data.totalElements);
@@ -178,7 +176,6 @@ function SuppliesComponent() {
     }
     function handleEdit(index){
         setAction('edit');
-        console.log(supplies[index]);
         setPropSupply(supplies[index]);
         setOpenAddNew(true);
     }
@@ -187,14 +184,11 @@ function SuppliesComponent() {
         getDataFromApi(page, rowsPerPage, searchUserName, typeFilter);
     }
     function handleChangeTypeFilter(value){
-        console.log('handldlld');
-        console.log('type: '+ value);
         setLoad(true);
         setTypeFilter(value);
         getDataFromApi(page, rowsPerPage, searchUserName, value);
     }
     function handleShowTimeLine(id){
-        console.log('id ne:'+ id);
         SupplieSerice.viewHistories(id).then(r => {
             console.log(r);
             setHistories(r.data);
@@ -325,7 +319,6 @@ function SuppliesComponent() {
         setopenpopup(false);
     }
     function formatDate(date){
-        console.log("format datte ne");
         let arr = date.split('/');
         return arr[1] + "/" + arr[0] + "/" + arr[2];
     }

@@ -124,7 +124,8 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 						orderedItemDTO.setNote(quo.getOrderedItem().getNote());
 					}
 					if (quo.getOrderedItem().getFilePathDrawing() != null) {
-						orderedItemDTO.setFilePathDrawing(filePath + "/" + quo.getOrderedItem().getFilePathDrawing());
+//						orderedItemDTO.setFilePathDrawing(filePath + "/" + quo.getOrderedItem().getFilePathDrawing());
+						orderedItemDTO.setFilePathDrawing(quo.getOrderedItem().getFilePathDrawing());
 					}
 					orderedItemDTOs.add(orderedItemDTO);
 				}
@@ -263,18 +264,12 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 		// save history
 		boolean flag = false;
 		StringBuilder bodyChange = new StringBuilder();
-		if(orderedItem.getSpecifications() != null && "null".equals(orderedItem.getSpecifications())) {
-			orderedItem.setSpecifications(null);
-		}
-		if(orderedItem.getCaculateUnit() != null && "null".equals(orderedItem.getCaculateUnit())) {
-			orderedItem.setCaculateUnit(null);
-		}
 		if (orderedItem.getDeliveryDate() != null
 				&& !orderedItem.getDeliveryDate().equals(orderDTO.getDeliveryDate())) {
 			bodyChange.append(". Ngày giao hàng: ");
 			bodyChange.append(orderedItem.getDeliveryDate());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getDeliveryDate());
+			bodyChange.append(orderDTO.getDeliveryDate() == null ? "" : orderDTO.getDeliveryDate());
 			flag = true;
 		}
 		if (orderedItem.getQuotation().getName() != null
@@ -282,14 +277,14 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 			bodyChange.append(". Tên: ");
 			bodyChange.append(orderedItem.getQuotation().getName());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getName());
+			bodyChange.append(orderDTO.getName() == null ?  "" : orderDTO.getName());
 			flag = true;
 		}
 		if (orderedItem.getAddress() != null && !orderedItem.getAddress().equals(orderDTO.getAddress())) {
 			bodyChange.append(". địa chỉ: ");
 			bodyChange.append(orderedItem.getAddress());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getAddress());
+			bodyChange.append(orderDTO.getAddress() == null ? "" : orderDTO.getAddress());
 			flag = true;
 		}
 		if (orderedItem.getCaculateUnit() != null
@@ -297,7 +292,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 			bodyChange.append(". đơn vị tính: ");
 			bodyChange.append(orderedItem.getCaculateUnit());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getCaculateUnit());
+			bodyChange.append(orderDTO.getCaculateUnit() == null ? "" : orderDTO.getCaculateUnit());
 			flag = true;
 		}
 		if (file != null) {
@@ -306,7 +301,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 				bodyChange.append(". tên file: ");
 				bodyChange.append(orderedItem.getFilePathDrawing());
 				bodyChange.append("->");
-				bodyChange.append(file.getOriginalFilename());
+				bodyChange.append(file.getOriginalFilename() == null ? "" : file.getOriginalFilename());
 				flag = true;
 			}
 		}
@@ -315,7 +310,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 				bodyChange.append(". ghi chú: ");
 				bodyChange.append(orderedItem.getNote());
 				bodyChange.append("->");
-				bodyChange.append(orderDTO.getNote());
+				bodyChange.append(orderDTO.getNote() == null ? "" : orderDTO.getNote());
 				flag = true;
 			}
 		}
@@ -323,7 +318,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 			bodyChange.append(". tình trạng: ");
 			bodyChange.append(orderedItem.getStatus().getName());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getStatus());
+			bodyChange.append(orderDTO.getStatus() == null ? "" : orderDTO.getStatus());
 			flag = true;
 			if(orderDTO.getStatus().equals(OrderStatusConstant.WaitShip.getValue())) {
 				orderedItem.setRealDeliveryDate(LocalDateTime.now());
@@ -340,47 +335,47 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 			bodyChange.append(". Thông số kỹ thuật: ");
 			bodyChange.append(orderedItem.getSpecifications());
 			bodyChange.append("->");
-			bodyChange.append(orderDTO.getSpecifications());
+			bodyChange.append(orderDTO.getSpecifications() == null ? "" : orderDTO.getSpecifications());
 			flag = true;
 		}
-		if (orderDTO.getBoCode() != null && !orderDTO.getBoCode().equals(orderedItem.getQuotation().getBoCode())) {
+		if (orderedItem.getQuotation().getBoCode() != null && !orderDTO.getBoCode().equals(orderedItem.getQuotation().getBoCode())) {
 			bodyChange.append(" Mã BO:");
 			bodyChange.append(orderedItem.getQuotation().getBoCode());
 			bodyChange.append(" -> ");
-			bodyChange.append(orderDTO.getBoCode());
+			bodyChange.append(orderDTO.getBoCode() == null ? "" : orderDTO.getBoCode());
 			flag = true;
 		}
-		if (orderDTO.getEmail() != null && !orderDTO.getEmail().equals(orderedItem.getQuotation().getEmail())) {
+		if (orderedItem.getQuotation().getEmail() != null && !orderDTO.getEmail().equals(orderedItem.getQuotation().getEmail())) {
 			bodyChange.append(" .Email:");
-			bodyChange.append(orderedItem.getQuotation().getEmail());
+			bodyChange.append(orderedItem.getQuotation().getEmail() == null ? "" : orderedItem.getQuotation().getEmail());
 			bodyChange.append(" -> ");
 			bodyChange.append(orderDTO.getEmail());
 			flag = true;
 		}
-		if (orderDTO.getNameOfCustomer() != null
+		if (orderedItem.getQuotation().getNameOfCustomer() != null
 				&& !orderDTO.getNameOfCustomer().equals(orderedItem.getQuotation().getNameOfCustomer())) {
 			bodyChange.append(" .Tên khách:");
-			bodyChange.append(orderedItem.getQuotation().getNameOfCustomer());
+			bodyChange.append(orderedItem.getQuotation().getNameOfCustomer() == null ? "" : orderedItem.getQuotation().getNameOfCustomer());
 			bodyChange.append(" -> ");
 			bodyChange.append(orderDTO.getNameOfCustomer());
 			flag = true;
 		}
-		if (orderDTO.getPhoneNumber() != null
+		if (orderedItem.getQuotation().getPhoneNumber() != null
 				&& !orderDTO.getPhoneNumber().equals(orderedItem.getQuotation().getPhoneNumber())) {
 			bodyChange.append(" .Số điện thoại:");
-			bodyChange.append(orderedItem.getQuotation().getPhoneNumber());
+			bodyChange.append(orderedItem.getQuotation().getPhoneNumber() == null ? "" : orderedItem.getQuotation().getPhoneNumber());
 			bodyChange.append(" -> ");
 			bodyChange.append(orderDTO.getPhoneNumber());
 			flag = true;
 		}
-		if (orderDTO.getPrice() != null && !orderDTO.getPrice().equals(orderedItem.getQuotation().getPrice())) {
+		if (orderedItem.getQuotation().getPrice() != null && !orderDTO.getPrice().equals(orderedItem.getQuotation().getPrice())) {
 			bodyChange.append(" .Giá:");
-			bodyChange.append(orderedItem.getQuotation().getPrice());
+			bodyChange.append(orderedItem.getQuotation().getPrice() == null ? "" : orderedItem.getQuotation().getPrice());
 			bodyChange.append(" -> ");
 			bodyChange.append(orderDTO.getPrice());
 			flag = true;
 		}
-		if (orderDTO.getQuantity() != orderedItem.getQuotation().getQuantity()) {
+		if (orderedItem.getQuotation().getQuantity() != orderedItem.getQuotation().getQuantity()) {
 			bodyChange.append(" .Số lượng:");
 			bodyChange.append(orderedItem.getQuotation().getQuantity());
 			bodyChange.append(" -> ");
@@ -438,6 +433,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 				throw new DocumentStorageException("Could not store file " + fileName + ". Please try again!", ex);
 			}
 		}
+		orderedItemRepository.save(orderedItem);
 		// save history
 		StringBuilder contentHistory = new StringBuilder();
 		if (flag) {

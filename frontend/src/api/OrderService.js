@@ -14,7 +14,6 @@ class OrderService {
         });
     }
     getDetail(idQuotation, idOrdered, idUser) {
-        console.log("domain");
         let idOrderAndUser = idOrdered + "," + idUser;
         return axios.get(`${this.domain}/${idQuotation}/${idOrderAndUser}`, {
             headers: {
@@ -46,6 +45,7 @@ class OrderService {
             }
         });
     }
+
 }
 
 export default new OrderService();

@@ -146,9 +146,7 @@ function AccountsComponent() {
         })
     }, []);
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "") => {
-        console.log(page1, rowsPerPage1);
         UserService.getListAccounts(page1, rowsPerPage1, fieldSearch).then(result => {
-            console.log(result);
             setusers(result.data.content);
             settotalElements(result.data.totalElements);
             setLoad(false);
@@ -179,7 +177,7 @@ function AccountsComponent() {
             setopenpopup(true);
             getDataFromApi(page, rowsPerPage);
         }).catch(e => {
-            console.log('catch is run');
+            console.log(e);
             setLoad(false);
             setmessageResult("Máy chủ đang bị lỗi!");
             settypeAlert("error");

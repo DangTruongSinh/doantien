@@ -188,7 +188,6 @@ function OrdersComponent(props) {
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "") => {
         setAnchorEl(null);
         OrderService.paging(page1, rowsPerPage1, fieldSearch).then(result => {
-            console.log(result.data.content);
             setOrders(result.data.content);
             settotalElements(result.data.totalElements);
             for(let i = 0; i < result.data.content.length; i++){
@@ -231,6 +230,28 @@ function OrdersComponent(props) {
         } else if(status === 'Thi công hoàn tất'){
             return "#20d21d";
         }
+    }
+    function handleDownload(id, filePathDrawing){
+        let index = filePathDrawing.indexOf('_') + 1;
+        filePathDrawing = filePathDrawing.substring(index, filePathDrawing.length);
+        let url = OrderService.urlDownloadFile;
+        fetch(`${url}${id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+            }
+        }).then(response => {
+            response.blob().then(blob => {
+                let url = window.URL.createObjectURL(blob);
+                let a = document.createElement('a');
+                a.href = url;
+                a.download = filePathDrawing;
+                a.target="_blank";
+                a.click();
+            });
+        }).catch(e =>{
+            console.log(e);
+        })
+        
     }
     return (
         <>
@@ -282,7 +303,8 @@ function OrdersComponent(props) {
                             {row.caculateUnit != 'null' ? row.caculateUnit : ""}
                         </TableCell>
                         <TableCell align="center" style ={{fontSize: "14px"}}>
-                        { !!row.filePathDrawing && <a href={OrderService.urlDownloadFile + row.id} target="_blank" style={{marginLeft: "10px"}}>Dowload File</a>} 
+                        {/* { !!row.filePathDrawing && <a href={OrderService.urlDownloadFile + row.id} target="_blank" style={{marginLeft: "10px"}}>Dowload File</a>}  */}
+                        { !!row.filePathDrawing  &&  <span style={{color: "blue", cursor: "pointer"}} onClick={() => handleDownload(row.id, row.filePathDrawing)}>Dowload File</span>}
                         </TableCell>
 
                         <TableCell align="center" style ={{fontSize: "14px"}}>

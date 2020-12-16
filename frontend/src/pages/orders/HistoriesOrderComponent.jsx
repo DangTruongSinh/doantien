@@ -41,8 +41,6 @@ export default function HistoriesOrderComponent(props) {
     const classes = useStyles();
     const {histories} = props;
     function covertUTCToCurrentTimezone(date1){
-        console.log('date time format');
-        console.log(date1);
         let moment = require('moment-timezone');
         let date = moment.utc().format(date1);
     

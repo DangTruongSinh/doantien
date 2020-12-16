@@ -14,8 +14,6 @@ class SupplieSerice {
     }
 
     createNew(supply) {
-        console.log('supply:');
-        console.log(supply);
         return axios.post(`${this.domain}/supplies`, supply, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('id_token')

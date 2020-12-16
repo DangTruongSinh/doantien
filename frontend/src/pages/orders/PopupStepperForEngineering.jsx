@@ -92,10 +92,7 @@ export default function PopupStepperForEngineering(props){
         setOpenConfirm(false);
     };
     useEffect(() => {
-      console.log('use effect of popup is run');
       OrderService.getStatus().then(r => {
-        console.log('status ne:');
-        console.log(r.data);
         let result = [];
         if(isEngineering){
           for(let i = 0; i < 3; i++){
@@ -113,9 +110,6 @@ export default function PopupStepperForEngineering(props){
       })
     }, []);
     useEffect(() => {
-      console.log('index ne:::');
-      console.log(statusSelect);
-
       if(open){
         for(let i = 0; i < arr.length; i++){
           if(arr[i].name === statusSelect){
@@ -141,7 +135,6 @@ export default function PopupStepperForEngineering(props){
   };
 
   const handleNext = () => {
-    console.log('id item:', idItem);
     setOpenConfirm(true);
     setNewStatus(steps[activeStep + 1].name);
     setTypeAction('next');
@@ -167,8 +160,6 @@ export default function PopupStepperForEngineering(props){
             setmessageResult('Thay đổi tình trạng đơn hàng thành công');
             let arr1 = [...status];
             arr1[index] = arr[myStep].name;
-            console.log('status new:');
-            console.log(arr1[index]);
             setStatus(arr1);
             setStatusSelect(arr1[index]);
             setLoad(false);

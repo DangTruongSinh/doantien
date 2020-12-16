@@ -125,9 +125,7 @@ function AddNewSupplieComponent(props) {
             setErrorPrice(true);
             flag =  false;
         }
-        console.log(flag);
         if(flag){
-            console.log('date ne:' + date);
             let date2 = date;
             if(!date.toString().includes('GMT')){
                 let temp = date.split("/");
@@ -152,7 +150,6 @@ function AddNewSupplieComponent(props) {
                 price: price,
                 date: dateConvert,
             };
-            console.log(supply);
             if(action === 'add'){
                 SupplieSerice.createNew(supply).then(result => {
                     showMessageSuccessAfterAction('Tạo vật tư thành công', 'success');

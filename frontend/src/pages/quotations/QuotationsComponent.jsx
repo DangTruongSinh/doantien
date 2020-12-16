@@ -183,7 +183,6 @@ function SuppliesComponent(props) {
         setAnchorEl(event.currentTarget);
         setIdItem(id);
         setIndexClick(index);
-        console.log("m: "+ id);
     };
 
     const handleCloseButtonAction = () => {
@@ -238,7 +237,6 @@ function SuppliesComponent(props) {
         getDataFromApi(0, 5, searchName, isDelete, typeFilter2, status);
     }, []);
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type = false, typeFilter1="UNKNOWN", orderStatus="") => {
-        console.log(page1, rowsPerPage1, type);
         setAnchorEl(null);
         QuotationService.getQuotations(page1, rowsPerPage1, fieldSearch, type, typeFilter1, orderStatus).then(result => {
             setLoad(false);
@@ -252,19 +250,17 @@ function SuppliesComponent(props) {
             console.log(err);
         });
     }
-    function onDelete (id) {
-        console.log('on delete is running now: ' + id);
+    function onDelete () {
         setLoad(true);
         setAnchorEl(null);
         setConfirmDialog({
             ...confirmDialog,
             isOpen: false
         });
-        QuotationService.delete(id, isAdmin, isManager).then(result => {
+        QuotationService.delete(idItem, isAdmin, isManager).then(result => {
             setmessageResult("Xóa thành công");
             settypeAlert("success");
             setopenpopup(true);
-            console.log('Lọc theo: '+ typeFilter);
             getDataFromApi(page, rowsPerPage, searchUserName, isDeleteByAdmin, typeFilter);
         }).catch(e => {
             console.log(e);
@@ -298,7 +294,6 @@ function SuppliesComponent(props) {
     function handleViewReason(){
         setAnchorEl(null);
         RejectedItemService.getReason(idItem).then(r => {
-            console.log(r.data);
             setMessageReason(r.data);
             setOpenRejectDialog(true);
         }).catch(error => {
@@ -308,7 +303,6 @@ function SuppliesComponent(props) {
     function handleShowTimeLine(){
         setLoad(true);
         QuotationService.viewHistories(idItem).then(r => {
-            console.log(r);
             if(r === undefined){
                 setLoad(false);
                 setmessageResult("Máy chủ đang bị lỗi!");
@@ -342,28 +336,19 @@ function SuppliesComponent(props) {
 
     function handleChangeOrderStatus(value){
         setLoad(true);
-        console.log(value);
         setTypeOrderStatus(value);
         if(value === 'All') value = "";
         getDataFromApi(page, rowsPerPage, searchUserName, isDeleteByAdmin, typeFilter, value);
     }
 
     function covertUTCToCurrentTimezone(date1){
-        console.log('date time format');
-        console.log(date1);
         let moment = require('moment-timezone');
         let date = moment.utc().format(date1);
-    
         let stillUtc = moment.utc(date).toDate();
         let local = moment(stillUtc).local().format('YYYY-MM-DD'); 
-        console.log('after:');
-        console.log(local);
         return local;
     }
     function handleColorForLate(strDateExpect, realDate){
-        console.log('handle color:');
-        console.log(strDateExpect);
-        console.log(realDate);
         if(typeFilter !== 'CONFIRM'){
             return 'white';
         }
@@ -447,7 +432,7 @@ function SuppliesComponent(props) {
                     </Select>
                 </FormControl>
             }
-                <TextField size="small" value={searchUserName} onChange={(e) => {setSearchUserName(e.target.value)}} variant="outlined" style={{marginLeft: "10px", width:"200px"}} label="Nhập tên khách hàng"/>
+                <TextField size="small" value={searchUserName} onChange={(e) => {setSearchUserName(e.target.value)}} variant="outlined" style={{marginLeft: "10px", width:"200px"}} label="Nhập BBG Số"/>
                 <Button variant="contained" style={{backgroundColor: "#22349a", color:"white", marginLeft: "10px"}} onClick={handleSearch}>Tìm kiếm</Button>
             </div>
         </div>
@@ -525,7 +510,7 @@ function SuppliesComponent(props) {
                                             isOpen: true,
                                             title: 'Bạn có chắc chắn muốn xóa dữ liệu này?',
                                             subTitle: "Bạn sẽ không thể nào khôi phục lại dữ liệu này",
-                                            onConfirm: () => { onDelete(row.id) }
+                                            onConfirm: () => { onDelete() }
                                         })
                                     }}>
                                 <ListItemIcon>

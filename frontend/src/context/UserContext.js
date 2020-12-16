@@ -66,7 +66,6 @@ function loginUser(dispatch, login, password, history, setIsValid, setLoad) {
       let isManager = false;
       let isEngineer = false;
       UserService.login(login, password).then(r => {
-          console.log(r.data);
           if(r.data.roles === 'ADMIN'){
             type = "LOGIN_SUCCESS_ADMIN";
             url = "/app/accounts";

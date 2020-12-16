@@ -22,7 +22,6 @@ instance.interceptors.response.use((response) => {
                     'Authorization': 'Bearer ' + localStorage.getItem('id_token')
                 }
             }).then(r => {
-                console.log(r.data);
                 localStorage.setItem('id_token', r.data);
                 return instance(originalRequest);
             }).catch(error => {

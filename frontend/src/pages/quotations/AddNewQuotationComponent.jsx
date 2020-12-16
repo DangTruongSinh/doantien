@@ -85,9 +85,6 @@ function AddNewSupplieComponent(props) {
     const messageValidate = "Vui lòng điền thông tin";
 
     useEffect(() => {
-        console.log('huhu');
-        console.log(propQuotation);
-        console.log(action);
         if(action === 'edit'){
             setName(propQuotation.name);
             setPrice(propQuotation.price);
@@ -161,7 +158,6 @@ function AddNewSupplieComponent(props) {
                 }
             }
             quotation.deliveryDate = dateConvert;
-            console.log(quotation);
         }
         setOpen(false);
         setLoad(true);

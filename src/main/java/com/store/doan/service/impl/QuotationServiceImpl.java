@@ -1,5 +1,6 @@
 package com.store.doan.service.impl;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -80,9 +82,12 @@ public class QuotationServiceImpl implements IQuotationService {
 	
 	@Autowired
 	UtilsCommon utilsCommon;
-
+	
+	@Value("${file.upload-dir}")
+	String filePath;
+	
 	static final Logger logger = LoggerFactory.getLogger(QuotationServiceImpl.class);
-
+	
 	@Override
 	public QuotationDTO createNew(QuotationDTO quotationDTO, Long idUser) {
 
@@ -348,6 +353,11 @@ public class QuotationServiceImpl implements IQuotationService {
 		// TODO Auto-generated method stub
 		Quotation quotation = quotationRepository.findById(id)
 				.orElseThrow(() -> new NotFoundException(MessageError.QUOTATION_NOT_FOUND));
+		OrderedItem order = quotation.getOrderedItem();
+		if(order != null) {
+			File file = new File(filePath + "/" + order.getFilePathDrawing());
+			file.delete();
+		}
 		quotationRepository.delete(quotation);
 		logger.info("user id: {} had  delete quotation with id {}", idUser, id);
 	}
@@ -357,7 +367,7 @@ public class QuotationServiceImpl implements IQuotationService {
 		// TODO Auto-generated method stub
 		nameOfCustomer = UtilsCommon.concatString("%", nameOfCustomer, "%");
 		Page<Quotation> pageQuotations = quotationRepository
-				.findByNameOfCustomerLikeAndIsDeletedIsAndQuotationStatusNameLike(nameOfCustomer, pageable, isDeleted,
+				.findByBoCodeLikeAndIsDeletedIsAndQuotationStatusNameLike(nameOfCustomer, pageable, isDeleted,
 						qstatus);
 		List<QuotationDTO> quotationDTOs = new ArrayList<QuotationDTO>();
 		pageQuotations.getContent().forEach(quotation -> {

@@ -52,44 +52,41 @@ export default function Header(props) {
   let {isAdmin, isManager, isEngineering } = useUserState();
 
   useEffect(() => {
-    const myInterval = setInterval(() => {
-        NotificationService.getNotifications(0,6, false).then(r => {
-            if(r === undefined || r === null) return;
-            console.log(r.data);
-            setSize(r.data.totalElements);
-            let arr = r.data.content;
-            if(arr.length == 0){
-              setNoti([]);
-            }
-            let re =  [...arr];
-            let flag = false;
-            for(let i = 0; i < arr.length; i++){
-              if(arrPre.length == 0 || arrPre[i] === undefined || arrPre[i].id != arr[i].id){
-                let x = {
-                  id: arr[i].id,
-                  idOrder: arr[i].idOrderedItem,
-                  idQuo: arr[i].idQuotation,
-                  idUser: arr[i].idUser,
-                  boCode: arr[i].boCode,
-                  color: "secondary",
-                  type: "notification",
-                  message: arr[i].content + " có mã bo:" + arr[i].boCode
-                }
-                re[i] = x;
-                flag = true;
-              }
-            }
-            if(flag){
-              arrPre = re;
-              console.log('flag is run');
-              console.log(arrPre);
-              setNoti(arrPre);
-            }
-      })
-    }, 2000);
-    return () => {
-      clearInterval(myInterval);
-    };
+    // const myInterval = setInterval(() => {
+    //     NotificationService.getNotifications(0,6, false).then(r => {
+    //         if(r === undefined || r === null) return;
+    //         setSize(r.data.totalElements);
+    //         let arr = r.data.content;
+    //         if(arr.length == 0){
+    //           setNoti([]);
+    //         }
+    //         let re =  [...arr];
+    //         let flag = false;
+    //         for(let i = 0; i < arr.length; i++){
+    //           if(arrPre.length == 0 || arrPre[i] === undefined || arrPre[i].id != arr[i].id){
+    //             let x = {
+    //               id: arr[i].id,
+    //               idOrder: arr[i].idOrderedItem,
+    //               idQuo: arr[i].idQuotation,
+    //               idUser: arr[i].idUser,
+    //               boCode: arr[i].boCode,
+    //               color: "secondary",
+    //               type: "notification",
+    //               message: arr[i].content + " có mã bo:" + arr[i].boCode
+    //             }
+    //             re[i] = x;
+    //             flag = true;
+    //           }
+    //         }
+    //         if(flag){
+    //           arrPre = re;
+    //           setNoti(arrPre);
+    //         }
+    //   })
+    // }, 2000);
+    // return () => {
+    //   clearInterval(myInterval);
+    // };
 }, []);
   function gotoDetailOrder(idQ, idOrder, idUser, boCode){
     setNotificationsMenu(null);
@@ -102,7 +99,6 @@ export default function Header(props) {
   }
 
   function handleChangePassword(){
-    console.log('change password');
     setOpenResetPassword(true);
   }
   return (

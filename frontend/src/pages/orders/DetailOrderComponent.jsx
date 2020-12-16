@@ -50,8 +50,6 @@ export default function DetailOrderComponent(props) {
     }, []);
     function loadData(){
         OrderService.getDetail(idQuotation, idOrder, idUser).then(r=>{
-            console.log('data ne:');
-            console.log(r.data);
             setName(r.data.name);
             setIdItem(r.data.id);
             setStatus(r.data.status);
@@ -83,8 +81,6 @@ export default function DetailOrderComponent(props) {
     function handleSaveChange(){
         setLoad(true);
         var bodyFormData = new FormData();
-        console.log('file ne:');
-        console.log(fileTechnical);
         bodyFormData.append('name', name);
         bodyFormData.append('idQuotation', idQuotation);
         bodyFormData.append('status', status);
@@ -93,6 +89,8 @@ export default function DetailOrderComponent(props) {
         bodyFormData.append('email', email);
         bodyFormData.append('address', address);
         bodyFormData.append('boCode', boCode);
+        console.log('specifications:');
+        console.log(specifications);
         bodyFormData.append('specifications', specifications);
         bodyFormData.append('caculateUnit', caculateUnit);
         bodyFormData.append('quantity', quantity);
@@ -121,14 +119,16 @@ export default function DetailOrderComponent(props) {
 
     function covertUTCToCurrentTimezone(date1){
         if(date1 === null) return "";
-        console.log('date time format');
-        console.log(date1);
         let moment = require('moment-timezone');
         let date = moment.utc().format(date1);
     
         let stillUtc = moment.utc(date).toDate();
         let local = moment(stillUtc).local().format('YYYY-MM-DD'); 
         return local;
+    }
+    function handleFileName(fileName){
+        let index = fileName.indexOf("_") + 1;
+        return fileName.substring(index, fileName.length);
     }
     let history = useHistory();
     history.back = true;
@@ -205,7 +205,7 @@ export default function DetailOrderComponent(props) {
                                 <div class="row">
                                     <div class="col-6 form-group">
                                         <label for="">Ngày xác nhận</label>
-                                        <input  class="form-control" value={orderDate} disabled/>
+                                        <input  class="form-control" value={covertUTCToCurrentTimezone(orderDate)} disabled/>
                                     </div>
                                     <div class="col-6">
                                         <label for="">Đơn giá</label>
@@ -226,7 +226,7 @@ export default function DetailOrderComponent(props) {
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="">Ngày thực hiện</label>
-                                        <input  class="form-control" value={processDate} disabled/>
+                                        <input  class="form-control" value={covertUTCToCurrentTimezone(processDate)} disabled/>
                                     </div>
                                     <div class="col-6">
                                         <label for="">Bản vẽ</label>
@@ -238,7 +238,7 @@ export default function DetailOrderComponent(props) {
                                 </div>
                                 <div class="row">
                                     <div class="col-12 form-group">
-                                        Download file: { !!filePathDrawing && <a href={OrderService.urlDownloadFile + idItem} target="_blank" style={{marginLeft: "10px", color:"blue"}}>{filePathDrawing}</a>}
+                                        Download file: { !!filePathDrawing && <a href={OrderService.urlDownloadFile + idItem} target="_blank" style={{marginLeft: "10px", color:"blue"}}>{handleFileName(filePathDrawing)}</a>}
                                         { filePathDrawing === '' || filePathDrawing === null && <b style={{color:"red"}}>File chưa được tải lên!!!</b>}
                                     </div>
                                 </div>

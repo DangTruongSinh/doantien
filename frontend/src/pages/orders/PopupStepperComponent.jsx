@@ -78,10 +78,7 @@ export default function PopupStepperComponent(props){
     const [steps, setSteps] = useState([]);
     const [arr, setArr] = useState([]);
     useEffect(() => {
-      console.log('use effect of popup is run');
       OrderService.getStatus().then(r => {
-        console.log('status ne:');
-        console.log(r.data);
         let result = [];
         if(isEngineering){
           for(let i = 1; i < 4; i++){

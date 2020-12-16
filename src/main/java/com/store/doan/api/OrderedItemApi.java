@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,6 +47,9 @@ public class OrderedItemApi {
 	
 	@Autowired
 	INotificationService iNotificationService;
+	
+	@Value("${file.upload-dir}")
+	String filePath;
 	
 	@GetMapping("/orders")
 	public Page<OrderedItemDTO> paging(Pageable pageable, @RequestParam("boCode") String boCode){

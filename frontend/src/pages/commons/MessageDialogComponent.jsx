@@ -52,7 +52,6 @@ export default function ReasonDialogComponent(props){
     };
 
     function handleMessage(){
-        console.log('hello: ', messageReason);
         if(messageReason === 'null')
             return '';
         return messageReason;

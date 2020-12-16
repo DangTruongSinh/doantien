@@ -75,7 +75,6 @@ function CustomizedDialogs(props) {
   const [messageErrorUsername, setMessageErrorUsername] = useState("Username đã tồn tại");
   
   useEffect(() => {
-    console.log('action ne: ' + action);
     if(action === 'edit'){
       setname(propUser.username);
       setrole(propUser.role);
@@ -109,7 +108,6 @@ function CustomizedDialogs(props) {
     setOpen(false);
     setLoad(true);
     let flag = true;
-    console.log('action ne:' + action);
     if(name.trim().length === 0){
       seterrorUserName(true);
       setMessageErrorUsername(messageValidate);
@@ -127,7 +125,6 @@ function CustomizedDialogs(props) {
       seterrorPhone(true);
       flag =  false;
     }
-    console.log(flag);
     if(flag){
       let account = {
         username: name,
@@ -136,11 +133,9 @@ function CustomizedDialogs(props) {
         phone: phone,
         role: role
       };
-      console.log(account);
       if(action === 'add'){
         UserService.createNewUser(account).then(result => {
           setLoad(false);
-          console.log(result.data);
           if(!!result.data){
             showMessageSuccessAfterAction('Tạo tài khoản thành công', 'success');
           } else {

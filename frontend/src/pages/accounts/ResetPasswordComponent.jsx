@@ -111,7 +111,6 @@ export default function ResetPasswordComponent(props) {
                     password: password
                 }
                 UserService.changePassword(user).then(r =>{
-                    console.log(r);
                     if(r === undefined){
                         setLoad(false);
                         showMessageSuccessAfterAction('Đã xảy ra lỗi trên hệ thống', 'error');
@@ -121,7 +120,6 @@ export default function ResetPasswordComponent(props) {
                     setLoad(false);
                 }).catch(e => {
                     setLoad(false);
-                    console.log('error ne');
                     console.log(e);
                     showMessageSuccessAfterAction('Đã xảy ra lỗi trên hệ thống', 'error');
                 })
