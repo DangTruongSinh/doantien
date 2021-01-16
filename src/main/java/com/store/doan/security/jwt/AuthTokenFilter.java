@@ -32,7 +32,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		System.out.println("path:" + request.getRequestURI());
+//		request.setCharacterEncoding("UTF-8");
+//		String provider = request.getParameter("provider");
+//		logger.info("chay first {}", provider);
 		try {
 			String jwt = parseJwt(request);
 			if (jwt != null && jwtUtils.validateJwtToken(jwt)) {

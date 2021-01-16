@@ -2,6 +2,8 @@ package com.store.doan.api;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,6 +38,13 @@ public class QuotationApi {
 	@Autowired
 	IHistoryQuotationsService iHistoryQuotationsService;
 	
+	static final Logger logger = LoggerFactory.getLogger(QuotationApi.class);
+	
+	@GetMapping("/quotations/checkExistBBG/{bbg}")
+	public String checkExist(@PathVariable String bbg){
+		return iQuotationService.checkExistBBG(bbg);
+	}
+	
 	@GetMapping("/quotations/histories/{id}")
 	public List<HistoryDTO> findHistory(@PathVariable Long id){
 		return iHistoryQuotationsService.getAll(id);
@@ -67,12 +76,13 @@ public class QuotationApi {
 		iQuotationService.delete(id, userDetails.getId());
 	}
 	
-	@GetMapping("/quotations")
+	@GetMapping(value = "/quotations")
 	public Page<QuotationDTO> paging(@RequestParam(name = "name",required = false,defaultValue = "") String name,
 			@RequestParam(required = false, defaultValue = "0", name = "page") Integer page, @RequestParam(required = false, defaultValue = "5", name = "size") Integer size,
 			@RequestParam(required = false, defaultValue = "false", name = "isDelete") Boolean isDelete,
 			@RequestParam(required = false, defaultValue = "UNKNOWN", name = "quoStatus") QuotationStatusConstant quoStatus,
 			@RequestParam(required = false, name = "orderStatus", defaultValue = "") String orderStatus){
+		logger.info("orderStatus {}", orderStatus);
 		Sort sort = Sort.by("createdDate").descending();
 		Pageable pageable = PageRequest.of(page, size, sort);
 		return iQuotationService.find(name, pageable, isDelete, quoStatus.name(), orderStatus);
@@ -88,5 +98,4 @@ public class QuotationApi {
 		}
 		return iQuotationService.update(quotationDTO, userDetails.getId());
 	}
-	
 }

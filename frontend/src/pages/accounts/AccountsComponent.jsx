@@ -259,7 +259,7 @@ function AccountsComponent() {
                 <TableFooter>
                 <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value: users.length }]}
+                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value: totalElements }]}
                     colSpan={12}
                     count={totalElements}
                     rowsPerPage={rowsPerPage}

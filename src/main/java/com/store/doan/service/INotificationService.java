@@ -9,7 +9,7 @@ public interface INotificationService {
 	
 	Page<NotificationDTO> findAllIsViewed(Long idUser, boolean isViewed, Pageable pageable);
 	
-	void delete(Long id);
+	void delete(Long id, Long idUser);
 	
-	void createNotification(Long orderId, String status);
+	void createNotification(Long idUser, Long orderId, String status);
 }

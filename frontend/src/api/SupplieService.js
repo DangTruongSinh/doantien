@@ -2,15 +2,19 @@ import axios from './Config';
 
 class SupplieSerice {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz';
+        this.domain = 'https://leduyenanhquanly.xyz';
     }
 
     getSupplies(page, size, name, isDelete) {
-        return axios.get(`${this.domain}/supplies?page=${page}&size=${size}&provider=${name}&isDelete=${isDelete}`, {
+        console.log(name);
+        let address = `${this.domain}/supplies?page=${page}&size=${size}&provider=${name}&isDelete=${isDelete}`;
+        let requestOptions = {
+            method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('id_token')
             }
-        });
+        };
+        return fetch(address, requestOptions).then(response => response.json());
     }
 
     createNew(supply) {

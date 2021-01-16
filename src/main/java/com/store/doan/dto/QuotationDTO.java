@@ -43,4 +43,6 @@ public class QuotationDTO {
 	private String deliveryDate;
 	
 	private LocalDateTime realDeliveryDate;
+	
+	private boolean late;
 }

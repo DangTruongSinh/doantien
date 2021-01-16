@@ -62,15 +62,15 @@ const styles = (theme) => ({
 
 function AddNewSupplieComponent(props) {
     
-    const {open, setOpen, fnCallApiGetSupply, propQuotation, action, idItem, typeFilter, orderStatus, setLoad, rowsPerPage} = props;
+    const {open, setOpen, fnCallApiGetSupply, propQuotation, action, idItem, typeFilter, orderStatus, setLoad, rowsPerPage, page} = props;
     const [openpopup, setopenpopup] = useState(false);
     const [messageResult, setmessageResult] = useState("");
     const [typeAlert, settypeAlert] = useState("");
 
-    const [errorProvider, setErrorProvider] = useState(false);
+    const [errorBBG, setErrorBBG] = useState(false);
     const [errorCaculate, setErrorCaculate] = useState(false);
     const [errorPrice, setErrorPrice] = useState(false);
-
+    const [oldBoCode, setOldBoCode] = useState("");
     const [price, setPrice] = useState("");
     const [boCode, setBoCode] = useState("");
     const [nameOfCustomer, setNameOfCustomer] = useState("");
@@ -85,10 +85,12 @@ function AddNewSupplieComponent(props) {
     const messageValidate = "Vui lòng điền thông tin";
 
     useEffect(() => {
+        setErrorBBG(false);
         if(action === 'edit'){
             setName(propQuotation.name);
             setPrice(propQuotation.price);
             setBoCode(propQuotation.boCode);
+            setOldBoCode(propQuotation.boCode);
             setNameOfCustomer(propQuotation.nameOfCustomer);
             setQuantity(propQuotation.quantity);
             setReason(propQuotation.reason);
@@ -114,7 +116,7 @@ function AddNewSupplieComponent(props) {
     }, [propQuotation])
 
     const handleClose = () => {
-        setErrorProvider(false);
+        setErrorBBG(false);
         setErrorCaculate(false);
         setErrorPrice(false);
         setOpen(false);
@@ -129,7 +131,7 @@ function AddNewSupplieComponent(props) {
         }
     }
     function handleSubmit(){
-        setOpen(false);
+        
         let quotation ={
             name: name,
             boCode: boCode,
@@ -159,35 +161,69 @@ function AddNewSupplieComponent(props) {
             }
             quotation.deliveryDate = dateConvert;
         }
-        setOpen(false);
-        setLoad(true);
+        
         if(action === 'add'){
-            QuotationService.createNew(quotation).then(r => {
-                setLoad(false);
-                if(r === undefined){
-                    showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+            QuotationService.checkBBG(quotation.boCode).then(r => {
+                if(r.data === true){
+                    setErrorBBG(true);
                     return;
                 }
-                showMessageSuccessAfterAction('Tạo đơn hàng thành công', 'success');
-            }).catch(e=>{
-                console.log(e);
-                setLoad(false);
-                showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
-            });
-        } else if(action === 'edit'){
-            
-            quotation.id = idItem;
-            QuotationService.update(quotation).then(r => {
-                setLoad(false);
-                if(r === undefined){
+                setOpen(false);
+                setLoad(true);
+                QuotationService.createNew(quotation).then(r => {
+                    setLoad(false);
+                    if(r === undefined){
+                        showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                        return;
+                    }
+                    showMessageSuccessAfterAction('Tạo đơn hàng thành công', 'success');
+                }).catch(e=>{
+                    console.log(e);
+                    setLoad(false);
                     showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
-                    return;
-                }
-                showMessageSuccessAfterAction('Chỉnh sửa đơn hàng thành công', 'success');
+                });
             }).catch(e => {
-                setLoad(false);
-                showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                console.log(e);
             })
+        } else if(action === 'edit'){
+            if(oldBoCode != quotation.boCode){
+                QuotationService.checkBBG(quotation.boCode).then(r => {
+                    console.log(r);
+                    if(r.data === true){
+                        setErrorBBG(true);
+                        return;
+                    }
+                    setOpen(false);
+                    setLoad(true);
+                    quotation.id = idItem;
+                    QuotationService.update(quotation).then(r => {
+                        setLoad(false);
+                        if(r === undefined){
+                            showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                            return;
+                        }
+                        showMessageSuccessAfterAction('Chỉnh sửa đơn hàng thành công', 'success');
+                    }).catch(e => {
+                        setLoad(false);
+                        showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                    })
+                });
+            } else {
+                setOpen(false);
+                setLoad(true);
+                quotation.id = idItem;
+                QuotationService.update(quotation).then(r => {
+                    setLoad(false);
+                    if(r === undefined){
+                        showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                        return;
+                    }
+                    showMessageSuccessAfterAction('Chỉnh sửa đơn hàng thành công', 'success');
+                }).catch(e => {
+                    setLoad(false);
+                    showMessageSuccessAfterAction('Máy chủ hiện bị lỗi', 'error');
+                })
+            }
         }
         
     }
@@ -200,8 +236,8 @@ function AddNewSupplieComponent(props) {
             <DialogContent dividers >
             <Grid container>
                 <Grid item xs={12} style={{width:"500px"}}>
-                    <TextField value={name} onChange={(e) => {setName(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên vật tư" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
-                    <TextField value={boCode} onChange={(e) => {setBoCode(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập số BBG" style={{margin:"10px 0px 10px 0px"}} error ={errorProvider} helperText = {errorProvider && messageValidate}/>
+                    <TextField value={name} onChange={(e) => {setName(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên vật tư" style={{margin:"10px 0px 10px 0px"}}/>
+                    <TextField value={boCode} onChange={(e) => {setBoCode(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập số BBG" style={{margin:"10px 0px 10px 0px"}} error ={errorBBG} helperText = {errorBBG && "Mã BBG đã tồn tại"}/>
                     <TextField value={nameOfCustomer} onChange={(e) => {setNameOfCustomer(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập tên khách hàng" style={{margin:"10px 0px 10px 0px"}} error ={errorCaculate} helperText = {errorCaculate && messageValidate}/>
                     <TextField value={quantity} onChange={(e) => {setQuantity(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập số lượng" style={{margin:"10px 0px 10px 0px"}} error ={errorPrice} helperText = {errorPrice && messageValidate}/>
                     <TextField value={price} onChange={(e) => {setPrice(e.target.value)}} variant="outlined" fullWidth={true} label="Nhập giá" style={{margin:"10px 0px 10px 0px"}} error ={errorPrice} helperText = {errorPrice && messageValidate}/>

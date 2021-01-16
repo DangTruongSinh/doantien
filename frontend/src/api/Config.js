@@ -17,7 +17,7 @@ instance.interceptors.response.use((response) => {
         const originalRequest = error.config;
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
-            instance.get('http://leduyenanhquanly.xyz/api/auth/refresh', {
+            instance.get('https://leduyenanhquanly.xyz/api/auth/refresh', {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('id_token')
                 }

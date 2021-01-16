@@ -183,15 +183,18 @@ function OrdersComponent(props) {
 
     useEffect(() => {
         setLoad(true);
+        setSearchBoCode(boCode);
         getDataFromApi(page, rowsPerPage, boCode);
     }, []);
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "") => {
         setAnchorEl(null);
+        console.log(rowsPerPage1);
         OrderService.paging(page1, rowsPerPage1, fieldSearch).then(result => {
-            setOrders(result.data.content);
-            settotalElements(result.data.totalElements);
-            for(let i = 0; i < result.data.content.length; i++){
-                arr[i] = result.data.content[i].status;
+            console.log(result);
+            setOrders(result.content);
+            settotalElements(result.totalElements);
+            for(let i = 0; i < result.content.length; i++){
+                arr[i] = result.content[i].status;
             }
             setStatus(arr);
             setLoad(false);
@@ -257,7 +260,7 @@ function OrdersComponent(props) {
         <>
         <div  style={{display:"flex"}}>
             <div style={{display:"flex", marginLeft: "auto"}}>
-                <TextField size="small" value={serchBoCode} onChange={(e) => {setSearchBoCode(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập tên vật tư"/>
+                <TextField size="small" value={serchBoCode} onChange={(e) => {setSearchBoCode(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập BBG Số"/>
                 <Button variant="contained" style={{backgroundColor: "#22349a", color:"white", marginLeft: "10px"}} onClick={handleSearch}>Tìm kiếm</Button>
             </div>
         </div>
@@ -303,8 +306,8 @@ function OrdersComponent(props) {
                             {row.caculateUnit != 'null' ? row.caculateUnit : ""}
                         </TableCell>
                         <TableCell align="center" style ={{fontSize: "14px"}}>
-                        {/* { !!row.filePathDrawing && <a href={OrderService.urlDownloadFile + row.id} target="_blank" style={{marginLeft: "10px"}}>Dowload File</a>}  */}
-                        { !!row.filePathDrawing  &&  <span style={{color: "blue", cursor: "pointer"}} onClick={() => handleDownload(row.id, row.filePathDrawing)}>Dowload File</span>}
+                        { !!row.filePathDrawing && <a href={OrderService.urlDownloadFile + row.id} target="_blank" style={{marginLeft: "10px"}}>Dowload File</a>} 
+                        {/* { !!row.filePathDrawing  &&  <span style={{color: "blue", cursor: "pointer"}} onClick={() => handleDownload(row.id, row.filePathDrawing)}>Dowload File</span>} */}
                         </TableCell>
 
                         <TableCell align="center" style ={{fontSize: "14px"}}>
@@ -347,7 +350,7 @@ function OrdersComponent(props) {
                 <TableFooter>
                 <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value: totalElements }]}
                     colSpan={12}
                     count={totalElements}
                     rowsPerPage={rowsPerPage}

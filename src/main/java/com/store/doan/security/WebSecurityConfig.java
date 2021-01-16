@@ -56,12 +56,12 @@ public class WebSecurityConfig extends  WebSecurityConfigurerAdapter {
 			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authorizeRequests().antMatchers("/", "/callback", "/login**", "/webjars/**",
-					"/error**", "/static/**", "/templates/**", "/manifest**", "/favicon**", "/index.html", "/app/**").permitAll() 
+					"/error**", "/static/**", "/templates/**", "/manifest**", "/favicon**", "/index.html", "/app/**", "/.well-known/pki-validation/**", "/test").permitAll() 
 			.and()
 			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
 			.and()
-//			.authorizeRequests().antMatchers("/orders/downloadFile/**").permitAll()
-//			.and()
+			.authorizeRequests().antMatchers("/orders/downloadFile/**").permitAll()
+			.and()
 			.authorizeRequests().antMatchers("/notFound").permitAll()
 			.anyRequest().authenticated();
 

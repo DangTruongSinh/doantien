@@ -156,7 +156,7 @@ public class QuotationServiceImpl implements IQuotationService {
 		orderedItem.setQuotation(quotation);
 		orderedItem.setDeliveryDate(quotationDTO.getDeliveryDate());
 		orderedItem.setOrderDate(LocalDateTime.now());
-		List<User> users = userRepository.findByRoleNameNot(RoleConstant.ENGINEERING.name());
+		List<User> users = userRepository.findByNotIdUser(user.getId());
 		Notification notification = notificationRepository.findByKeyName(OrderStatusConstant.WaitProcess.name())
 				.orElseThrow(() -> new NotFoundException("notification not found!"));
 		orderedItemRepository.save(orderedItem);
@@ -175,15 +175,15 @@ public class QuotationServiceImpl implements IQuotationService {
 		// notification
 
 		for (User u : users) {
-			if (!u.getRole().getName().equals(RoleConstant.ENGINEERING.name())) {
-				saveNotification(notification, orderedItem, u);
-			} else {
-				if (orderedItem.getStatus().getName().equals(OrderStatusConstant.WaitProcess.getValue())
-						|| orderedItem.getStatus().getName().equals(OrderStatusConstant.Processing.getValue())
-						|| orderedItem.getStatus().getName().equals(OrderStatusConstant.FishedProcess.getValue())) {
+				if (!u.getRole().getName().equals(RoleConstant.ENGINEERING.name())) {
 					saveNotification(notification, orderedItem, u);
+				} else {
+					if (orderedItem.getStatus().getName().equals(OrderStatusConstant.WaitProcess.getValue())
+							|| orderedItem.getStatus().getName().equals(OrderStatusConstant.Processing.getValue())
+							|| orderedItem.getStatus().getName().equals(OrderStatusConstant.FishedProcess.getValue())) {
+						saveNotification(notification, orderedItem, u);
+					}
 				}
-			}
 		}
 
 	}
@@ -365,11 +365,14 @@ public class QuotationServiceImpl implements IQuotationService {
 	@Override
 	public Page<QuotationDTO> find(String nameOfCustomer, Pageable pageable, boolean isDeleted, String qstatus, String orderStatus) {
 		// TODO Auto-generated method stub
+		long size;
 		nameOfCustomer = UtilsCommon.concatString("%", nameOfCustomer, "%");
 		Page<Quotation> pageQuotations = quotationRepository
 				.findByBoCodeLikeAndIsDeletedIsAndQuotationStatusNameLike(nameOfCustomer, pageable, isDeleted,
 						qstatus);
+		size = pageQuotations.getTotalElements();
 		List<QuotationDTO> quotationDTOs = new ArrayList<QuotationDTO>();
+		
 		pageQuotations.getContent().forEach(quotation -> {
 			if(orderStatus.equals("") || quotation.getOrderedItem().getStatus().getName().equals(orderStatus)) {
 				QuotationDTO quotationDTO = new QuotationDTO();
@@ -384,11 +387,25 @@ public class QuotationServiceImpl implements IQuotationService {
 					quotationDTO.setStatusOrder(quotation.getOrderedItem().getStatus().getName());
 					quotationDTO.setDeliveryDate(quotation.getOrderedItem().getDeliveryDate());
 					quotationDTO.setRealDeliveryDate(quotation.getOrderedItem().getRealDeliveryDate());
+					quotationDTO.setLate(quotation.getOrderedItem().isLate());
 				}
 				quotationDTOs.add(quotationDTO);
 			}
 		});
-		return new PageImpl<QuotationDTO>(quotationDTOs, pageable, pageQuotations.getTotalElements());
+		if(!orderStatus.equals("")) {
+			size = quotationDTOs.size();
+		}
+		return new PageImpl<QuotationDTO>(quotationDTOs, pageable, size);
+	}
+
+	@Override
+	public String checkExistBBG(String bbg) {
+		// TODO Auto-generated method stub
+		List<Quotation> quOptional = quotationRepository.findByBoCodeLike(bbg);
+		if (quOptional.size() > 0) {
+			return "true";
+		}
+		return "false";
 	}
 
 }

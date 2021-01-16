@@ -61,7 +61,7 @@ function CustomizedDialogs(props) {
   const [openpopup, setopenpopup] = useState(false);
   const [messageResult, setmessageResult] = useState("");
   const [typeAlert, settypeAlert] = useState("");
-
+  const [oldName, setOldName] = useState("");
   const [errorUserName, seterrorUserName] = useState(false);
   const [errorPassword, seterrorPassword] = useState(false);
   const [errorFullName, seterrorFullName] = useState(false);
@@ -75,19 +75,25 @@ function CustomizedDialogs(props) {
   const [messageErrorUsername, setMessageErrorUsername] = useState("Username đã tồn tại");
   
   useEffect(() => {
+    seterrorUserName(false);
+    seterrorFullName(false);
+    seterrorPassword(false);
+    seterrorPhone(false);
     if(action === 'edit'){
       setname(propUser.username);
       setrole(propUser.role);
       setFullName(propUser.fullName);
       setPhone(propUser.phone);
+      setOldName(propUser.username);
     } else if(action === 'add'){
       setname("");
       setrole("Admin");
       setFullName("");
       setPhone("");
+      setPassword("");
     }
     
-}, [propUser])
+}, [propUser, action])
 
   const handleClose = () => {
     seterrorUserName(false);
@@ -105,8 +111,6 @@ function CustomizedDialogs(props) {
     }
   }
   function handleSubmit(){
-    setOpen(false);
-    setLoad(true);
     let flag = true;
     if(name.trim().length === 0){
       seterrorUserName(true);
@@ -134,19 +138,50 @@ function CustomizedDialogs(props) {
         role: role
       };
       if(action === 'add'){
-        UserService.createNewUser(account).then(result => {
-          setLoad(false);
-          if(!!result.data){
-            showMessageSuccessAfterAction('Tạo tài khoản thành công', 'success');
-          } else {
+        UserService.checkExistUserName(name).then(r => {
+          if(r.data === true){
             seterrorUserName(true);
+          } else {
+            setOpen(false);
+            setLoad(true);
+            UserService.createNewUser(account).then(result => {
+              setLoad(false);
+              if(!!result.data){
+                showMessageSuccessAfterAction('Tạo tài khoản thành công', 'success');
+              }
+            }).catch(e => {
+              setLoad(false);
+              console.log(e);
+              showMessageSuccessAfterAction('Máy chủ đang bị lỗi rồi', 'error');
+            })
           }
         }).catch(e => {
-          setLoad(false);
           console.log(e);
-          showMessageSuccessAfterAction('Máy chủ đang bị lỗi rồi', 'error');
         })
       } else if(action === 'edit'){
+        if(oldName != name){
+          UserService.checkExistUserName(name).then(r => {
+            if(r.data === true){
+              seterrorUserName(true);
+            } else {
+              setOpen(false);
+              setLoad(true);
+              setOpen(false);
+              setLoad(true);
+              account.id = props.propUser.id;
+              UserService.updateUser(account).then(r =>{
+                setLoad(false);
+                showMessageSuccessAfterAction('Chỉnh sửa tài khoản thành công', 'success');
+              }).catch(e =>{
+                setLoad(false);
+                console.log(e);
+                showMessageSuccessAfterAction('Máy chủ đang bị lỗi rồi', 'error');
+              })
+            }
+        });
+      } else{
+        setOpen(false);
+        setLoad(true);
         account.id = props.propUser.id;
         UserService.updateUser(account).then(r =>{
           setLoad(false);
@@ -156,6 +191,7 @@ function CustomizedDialogs(props) {
           console.log(e);
           showMessageSuccessAfterAction('Máy chủ đang bị lỗi rồi', 'error');
         })
+      }
       }
       
     }

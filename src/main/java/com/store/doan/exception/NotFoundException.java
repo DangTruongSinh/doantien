@@ -11,4 +11,6 @@ public class NotFoundException extends RuntimeException{
 	{
 		super(s);
 	}
+	
+	
 }

@@ -2,15 +2,24 @@ import axios from './Config';
 
 class QuotationService {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz/quotations';
+        this.domain = 'https://leduyenanhquanly.xyz/quotations';
     }
 
-    getQuotations(page, size, fieldSearch, isDelete = false, quoStatus = "UNKNOWN", orderStatus = "") {
-        return axios.get(`${this.domain}?page=${page}&size=${size}&name=${fieldSearch}&isDelete=${isDelete}&quoStatus=${quoStatus}&orderStatus=${orderStatus}`, {
+    checkBBG(bbg) {
+        return axios.get(`${this.domain}/checkExistBBG/${bbg}`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('id_token')
             }
         });
+    }
+
+    getQuotations(page, size, fieldSearch, isDelete = false, quoStatus = "UNKNOWN", orderStatus = "") {
+        let address = `${this.domain}?page=${page}&size=${size}&name=${fieldSearch}&isDelete=${isDelete}&quoStatus=${quoStatus}&orderStatus=${orderStatus}`;
+        return fetch(address, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+            }
+        }).then(response => response.json());
     }
     viewHistories(id) {
         return axios.get(`${this.domain}/history/${id}`, {

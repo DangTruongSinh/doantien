@@ -2,7 +2,7 @@ import axios from './Config';
 
 class RejectedItemService {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz/rejectitem';
+        this.domain = 'https://leduyenanhquanly.xyz/rejectitem';
     }
     getReason(id) {
         return axios.get(`${this.domain}/reason/${id}`, {

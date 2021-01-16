@@ -2,16 +2,15 @@ import axios from './Config';
 
 class OrderService {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz/orders';
+        this.domain = 'https://leduyenanhquanly.xyz/orders';
         this.urlDownloadFile = `${this.domain}/downloadFile/`;
     }
-
     paging(page, size, boCode) {
-        return axios.get(`${this.domain}?page=${page}&size=${size}&boCode=${boCode}`, {
+        return fetch(`${this.domain}?page=${page}&size=${size}&boCode=${boCode}`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('id_token')
             }
-        });
+        }).then(response => response.json());
     }
     getDetail(idQuotation, idOrdered, idUser) {
         let idOrderAndUser = idOrdered + "," + idUser;

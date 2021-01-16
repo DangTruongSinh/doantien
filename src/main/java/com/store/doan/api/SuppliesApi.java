@@ -1,9 +1,11 @@
 package com.store.doan.api;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,6 +38,7 @@ public class SuppliesApi {
 	@Autowired
 	IHistorySuppliesService iHistoryService;
 	
+	Logger logger = LoggerFactory.getLogger(SuppliesApi.class);
 	
 	@GetMapping("/supplies/histories/{id}")
 	public List<HistoryDTO> viewHistory(@PathVariable Long id) {
@@ -44,13 +47,14 @@ public class SuppliesApi {
 	@GetMapping("/supplies")
 	public Page<SuppliesDTO> pagingSupplies(@RequestParam(required = false, defaultValue = "") String provider, 
 			@RequestParam(required = false, defaultValue = "0", name = "page") Integer page, @RequestParam(required = false, defaultValue = "5", name = "size") Integer size,
-			@RequestParam(required = false, defaultValue = "false", name = "isDelete") Boolean isDelete){
+			@RequestParam(required = false, defaultValue = "false", name = "isDelete") Boolean isDelete) throws UnsupportedEncodingException{
+		logger.info("provider {}", provider);
 		Sort sort = Sort.by("date").descending();
 		Pageable pageable = PageRequest.of(page, size, sort);
 		return iSuppliesService.findProvider(provider, pageable, isDelete);
 	}
 	@PostMapping("/supplies")
-	public SuppliesDTO createNew(@RequestBody @Valid SuppliesDTO suppliesDTO) {
+	public SuppliesDTO createNew(@RequestBody  SuppliesDTO suppliesDTO) {
 		UserDetailsImpl userDetails =
 				(UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return iSuppliesService.create(suppliesDTO, userDetails.getId());

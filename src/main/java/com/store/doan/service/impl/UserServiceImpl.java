@@ -56,10 +56,6 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public UserDTO createNew(UserDTO userDTO) {
-		Optional<User> opUser = userRepository.findByUsername(userDTO.getUsername());
-		if(opUser.isPresent()) {
-			return null;
-		}
 		// haspassword
 		String passwordHash = encoder.encode(userDTO.getPassword());
 		userDTO.setPassword(passwordHash);
@@ -135,6 +131,15 @@ public class UserServiceImpl implements IUserService {
 		historyQuotationRepository.deleteByUserId(id);
 		historySuppliesRepository.deleteByUserId(id);
 		userRepository.deleteById(id);
+	}
+
+	@Override
+	public String checkExist(String name) {
+		Optional<User> opUser = userRepository.findByUsername(name);
+		if(opUser.isPresent()) {
+			return "true";
+		}
+		return "false";
 	}
 
 }

@@ -1,7 +1,7 @@
 import axios from './Config';
 class UserService {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz';
+        this.domain = 'https://leduyenanhquanly.xyz';
     }
     checkToken() {
         return axios.get(`${this.domain}/api/auth/checkToken`, {
@@ -59,6 +59,14 @@ class UserService {
             password: password
         }
         return axios.post(`${this.domain}/api/auth/signin`, obj);
+    }
+
+    checkExistUserName(username) {
+        return axios.get(`${this.domain}/users/exist/${username}`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+            }
+        });
     }
 }
 

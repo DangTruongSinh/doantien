@@ -1,6 +1,5 @@
 package com.store.doan.api;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,12 +39,12 @@ public class UserApi {
 
 	@PostMapping("/users")
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public UserDTO newUser(@RequestBody @Valid UserDTO userDTO) {
+	public UserDTO newUser(@RequestBody  UserDTO userDTO) {
 		return iUserService.createNew(userDTO);
 	}
 
 	@PutMapping("/users")
-	public UserDTO update(@RequestBody @Valid UserDTO userDTO) {
+	public UserDTO update(@RequestBody  UserDTO userDTO) {
 		return iUserService.update(userDTO);
 	}
 
@@ -62,5 +61,10 @@ public class UserApi {
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable Long id){
 		iUserService.delete(id);
+	}
+	
+	@GetMapping("/users/exist/{name}")
+	public String checkExist(@PathVariable String name) {
+		return iUserService.checkExist(name);
 	}
 }

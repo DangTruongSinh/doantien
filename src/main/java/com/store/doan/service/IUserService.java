@@ -17,4 +17,6 @@ public interface IUserService {
 	Page<UserDTO> findUsers(String username, Integer page, Integer size, Long id);
 	
 	void delete(Long id);
+	
+	String checkExist(String name);
 }

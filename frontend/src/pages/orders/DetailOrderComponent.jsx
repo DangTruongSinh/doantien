@@ -89,14 +89,15 @@ export default function DetailOrderComponent(props) {
         bodyFormData.append('email', email);
         bodyFormData.append('address', address);
         bodyFormData.append('boCode', boCode);
-        console.log('specifications:');
-        console.log(specifications);
         bodyFormData.append('specifications', specifications);
         bodyFormData.append('caculateUnit', caculateUnit);
         bodyFormData.append('quantity', quantity);
         bodyFormData.append('price', price);
         bodyFormData.append('note', note);
         bodyFormData.append('deliveryDate', deliveryDate);
+        let x = new Date();
+        x = x.getDate() + "/" + x.getMonth() + 1 + "/" + x.getFullYear();
+        bodyFormData.append('dateSubmit', x);
         if(fileTechnical != null)
             bodyFormData.append('file', fileTechnical);
         OrderService.update(bodyFormData).then(r => {
@@ -123,7 +124,7 @@ export default function DetailOrderComponent(props) {
         let date = moment.utc().format(date1);
     
         let stillUtc = moment.utc(date).toDate();
-        let local = moment(stillUtc).local().format('YYYY-MM-DD'); 
+        let local = moment(stillUtc).local().format('DD/MM/YYYY'); 
         return local;
     }
     function handleFileName(fileName){
@@ -185,7 +186,7 @@ export default function DetailOrderComponent(props) {
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="">BBG Số</label>
-                                        <input type="text" class="form-control" value={boCode != 'null' ? boCode : ""} onChange={(e) => setBoCode(e.target.value)}/>
+                                        <input type="text" class="form-control" value={boCode != 'null' ? boCode : ""} disabled/>
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="">Thông số kỹ thuật</label>
@@ -238,7 +239,7 @@ export default function DetailOrderComponent(props) {
                                 </div>
                                 <div class="row">
                                     <div class="col-12 form-group">
-                                        Download file: { !!filePathDrawing && <a href={OrderService.urlDownloadFile + idItem} target="_blank" style={{marginLeft: "10px", color:"blue"}}>{handleFileName(filePathDrawing)}</a>}
+                                        Download file bản vẽ: { !!filePathDrawing && <a href={OrderService.urlDownloadFile + idItem} target="_blank" style={{marginLeft: "10px", color:"blue"}}>{handleFileName(filePathDrawing)}</a>}
                                         { filePathDrawing === '' || filePathDrawing === null && <b style={{color:"red"}}>File chưa được tải lên!!!</b>}
                                     </div>
                                 </div>

@@ -13,7 +13,8 @@ import './layout.css';
 // components
 import Header from "../Header";
 import Sidebar from "../Sidebar";
-
+import BannerVi from './banner_vi.png';
+import LogoVi from './logo_vi.png';
 // pages
 import SuppliesComponent from "../../pages/supplies/SuppliesComponent";
 import AccountsComponent from '../../pages/accounts/AccountsComponent';
@@ -61,13 +62,13 @@ function Layout(props) {
                   <div class="banner w-clear">
                       <div class="logo">
                           <a href="http://leduyenanh.vn/">
-                              <img src="http://leduyenanh.vn/thumb/120x120/3/upload/hinhanh/23966_logo_vi.png&q=100" alt="Logo" class=""/>
+                              <img src={LogoVi} alt="Logo" class=""/>
                           </a>
                       </div>
 
                       <div class="banner-m fl w-clear">   
                           <div class="banner-img ">
-                            <img src="http://leduyenanh.vn/upload/hinhanh/04573_banner_vi.png" alt="Banner"/>
+                            <img src={BannerVi} alt="Banner"/>
                           </div>
                       </div> 
                         

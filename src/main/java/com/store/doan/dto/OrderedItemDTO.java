@@ -29,5 +29,6 @@ public class OrderedItemDTO extends QuotationDTO{
 	private String note;
 	
 	private List<HistoryDTO> orderedItemHistories;
-
+	
+	
 }

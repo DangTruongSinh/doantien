@@ -61,7 +61,7 @@ const styles = (theme) => ({
 
 function AddNewSupplieComponent(props) {
     
-    const {open, setOpen, fnCallApiGetSupply, propSupply, action, setLoad} = props;
+    const {open, setOpen, fnCallApiGetSupply, propSupply, action, setLoad, rowsPerPage} = props;
     const [openpopup, setopenpopup] = useState(false);
     const [messageResult, setmessageResult] = useState("");
     const [typeAlert, settypeAlert] = useState("");
@@ -89,7 +89,10 @@ function AddNewSupplieComponent(props) {
             setProvider("");
             setCacualte("");
             setPrice("");
-            setDate(new Date().toLocaleDateString());
+            let date2 = new Date().toLocaleDateString();
+            console.log('date ne');
+            console.log(date2);
+            setDate(date2);
         }
         
     }, [propSupply])
@@ -106,7 +109,7 @@ function AddNewSupplieComponent(props) {
         settypeAlert(type)
         setopenpopup(true);
         if(type === 'success'){
-            fnCallApiGetSupply(0, 5);
+            fnCallApiGetSupply(0, rowsPerPage);
         }
     }
     function handleSubmit(){
@@ -133,15 +136,19 @@ function AddNewSupplieComponent(props) {
                     temp[1] = "0" + temp[1];
                     date2 = temp[0] + "/" + temp[1] +  "/" + temp[2];
                 }
+                console.log('if one:');
+                console.log(date2);
             }
             let dateConvert = date2;
             if(!!date && date.toString().includes('GMT')){
-                dateConvert = date.toLocaleDateString();
+                dateConvert = dateConvert.toLocaleDateString();
                 let temp = dateConvert.split("/");
                 if(temp[1].length === 1){
                     temp[1] = "0" + temp[1];
                     dateConvert = temp[0] + "/" + temp[1] +  "/" + temp[2];
                 }
+                console.log('if two:');
+                console.log(dateConvert);
             }
             let supply = {
                 name: name,

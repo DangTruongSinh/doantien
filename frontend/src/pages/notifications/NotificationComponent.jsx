@@ -177,6 +177,14 @@ function NotificationComponent(props) {
         }
         props.history.push(`/app/order/${idQ}/${idOrder}/${idUser}`);
     }
+    function covertUTCToCurrentTimezone(date1){
+        let moment = require('moment-timezone');
+        let date = moment.utc().format(date1);
+    
+        let stillUtc = moment.utc(date).toDate();
+        let local = moment(stillUtc).local().format('YYYY-MM-DD HH:mm:ss'); 
+        return local;
+    }
     return (
         <>
         <div  style={{display:"flex"}}>
@@ -197,7 +205,7 @@ function NotificationComponent(props) {
             <TableHead style={{backgroundColor: "#bae3f7"}}>
                     <TableRow>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>STT</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Mã PO</TableCell>
+                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Mã BBG</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Nội dung thông báo</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Ngày tạo</TableCell>
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Hành động</TableCell>
@@ -216,7 +224,7 @@ function NotificationComponent(props) {
                             {row.content}
                         </TableCell>
                         <TableCell  align="center" style ={{fontSize: "14px"}}>
-                            {row.dateCreated}
+                            {covertUTCToCurrentTimezone(row.dateCreated)}
                         </TableCell>
                         <TableCell align="center" style ={{fontSize: "14px"}}>
                             {
@@ -244,7 +252,7 @@ function NotificationComponent(props) {
                 <TableFooter>
                 <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value:  totalElements}]}
                     colSpan={12}
                     count={totalElements}
                     rowsPerPage={rowsPerPage}

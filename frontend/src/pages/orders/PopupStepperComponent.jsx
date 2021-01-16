@@ -162,7 +162,7 @@ export default function PopupStepperComponent(props){
         <>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} className="sinhne" >
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Thay đổi status đơn hàng
+                    Thay đổi tình trạng đơn hàng
                 </DialogTitle>
                 <DialogContent dividers  style={{width:"1000px!important"}}>
                     <Grid container>

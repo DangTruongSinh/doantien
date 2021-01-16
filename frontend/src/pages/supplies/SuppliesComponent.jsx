@@ -145,12 +145,12 @@ function SuppliesComponent() {
     const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type=false) => {
         SupplieSerice.getSupplies(page1, rowsPerPage1, fieldSearch, type).then(result => {
             setLoad(false);
-            setSupplies(result.data.content);
-            settotalElements(result.data.totalElements);
+            setSupplies(result.content);
+            settotalElements(result.totalElements);
         }).catch(err =>{
             console.log(err);
             setLoad(false);
-            setmessageResult("Đã xảy ra lỗi rồi, huhu!");
+            setmessageResult("Máy chủ đang bị lỗi!");
             settypeAlert("error");
             setopenpopup(true);
         });
@@ -218,7 +218,7 @@ function SuppliesComponent() {
             </FormControl>
             }
             
-                <TextField size="small" value={searchUserName} onChange={(e) => {setSearchUserName(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập tên nhà cung cấp"/>
+                <TextField size="small" value={searchUserName} onChange={(e) => {setSearchUserName(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập tên vật tư"/>
                 <Button variant="contained" style={{backgroundColor: "#22349a", color:"white", marginLeft: "10px"}} onClick={handleSearch}>Tìm kiếm</Button>
             </div>
         </div>
@@ -283,7 +283,7 @@ function SuppliesComponent() {
                 <TableFooter>
                 <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value: totalElements }]}
                     colSpan={12}
                     count={totalElements}
                     rowsPerPage={rowsPerPage}
@@ -300,7 +300,7 @@ function SuppliesComponent() {
                 </TableFooter>
             </Table>
         </TableContainer>
-        <AddNewSupplieComponent open={openAddNew} setOpen={setOpenAddNew}  fnCallApiGetSupply = {getDataFromApi} propSupply = {propSupply} setpropSupply={setPropSupply} action={action} setLoad={setLoad}/>
+        <AddNewSupplieComponent open={openAddNew} setOpen={setOpenAddNew}  rowsPerPage={rowsPerPage}  fnCallApiGetSupply = {getDataFromApi} propSupply = {propSupply} setpropSupply={setPropSupply} action={action} setLoad={setLoad}/>
         <ConfirmDialog
                 confirmDialog={confirmDialog}
                 setConfirmDialog={setConfirmDialog}

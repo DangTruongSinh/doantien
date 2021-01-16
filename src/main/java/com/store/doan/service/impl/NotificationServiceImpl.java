@@ -62,15 +62,15 @@ public class NotificationServiceImpl implements  INotificationService{
 	}
 
 	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		userNotificationRepository.deleteById(id);
+	public void delete(Long id, Long idUser) {
+		// TODO Auto-generated method stu
+		userNotificationRepository.deleteByOrderId(id, idUser);
 	}
 
 	@Override
-	public void createNotification(Long orderId, String status) {
+	public void createNotification(Long idUser,Long orderId, String status) {
 		// TODO Auto-generated method stub
-		List<User> users = userRepo.findAll();
+		List<User> users = userRepo.findByNotIdUser(idUser);
 		String keyName = null;
 		if(status.equals(OrderStatusConstant.WaitProcess.getValue())) {
 			keyName = OrderStatusConstant.WaitProcess.name();

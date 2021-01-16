@@ -7,8 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,7 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.store.doan.constant.MessageError;
 import com.store.doan.constant.MessageHistory;
 import com.store.doan.constant.OrderStatusConstant;
-import com.store.doan.constant.QuotationStatusConstant;
 import com.store.doan.constant.TypeAction;
 import com.store.doan.dto.HistoryDTO;
 import com.store.doan.dto.OrderStatusDTO;
@@ -101,47 +103,28 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 	public Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser) {
 		// TODO Auto-generated method stub
 		boCode = "%" + boCode + "%";
-		Page<Quotation> pageQuotations = quotationRepository.findByBoCodeLikeAndIsDeletedIsAndQuotationStatusNameLike(
-				boCode, pageable, false, QuotationStatusConstant.CONFIRM.name());
+		Page<Quotation> pageQuotations = quotationRepository.findOrderByEngineering(boCode, pageable);
 		List<OrderedItemDTO> orderedItemDTOs = new ArrayList<OrderedItemDTO>();
 		Set<Long> idOrders = new HashSet<Long>();
 		pageQuotations.getContent().forEach(quo -> {
 			idOrders.add(quo.getOrderedItem().getId());
-			if (!quo.isDeleted()) {
-				if (quo.getOrderedItem().getStatus().getName().equals(OrderStatusConstant.WaitProcess.getValue())
-						|| quo.getOrderedItem().getStatus().getName().equals(OrderStatusConstant.Processing.getValue())
-						|| quo.getOrderedItem().getStatus().getName()
-								.equals(OrderStatusConstant.FishedProcess.getValue())) {
-					OrderedItemDTO orderedItemDTO = new OrderedItemDTO();
-					orderedItemDTO.setId(quo.getOrderedItem().getId());
-					orderedItemDTO.setBoCode(quo.getBoCode());
-					orderedItemDTO.setQuantity(quo.getQuantity());
-					orderedItemDTO.setSpecifications(quo.getOrderedItem().getSpecifications());
-					orderedItemDTO.setCaculateUnit(quo.getOrderedItem().getCaculateUnit());
-					orderedItemDTO.setStatus(quo.getOrderedItem().getStatus().getName());
-					orderedItemDTO.setName(quo.getName());
-					if (quo.getOrderedItem().getNote() != null) {
-						orderedItemDTO.setNote(quo.getOrderedItem().getNote());
-					}
-					if (quo.getOrderedItem().getFilePathDrawing() != null) {
-//						orderedItemDTO.setFilePathDrawing(filePath + "/" + quo.getOrderedItem().getFilePathDrawing());
-						orderedItemDTO.setFilePathDrawing(quo.getOrderedItem().getFilePathDrawing());
-					}
-					orderedItemDTOs.add(orderedItemDTO);
-				}
+			OrderedItemDTO orderedItemDTO = new OrderedItemDTO();
+			orderedItemDTO.setId(quo.getOrderedItem().getId());
+			orderedItemDTO.setBoCode(quo.getBoCode());
+			orderedItemDTO.setQuantity(quo.getQuantity());
+			orderedItemDTO.setSpecifications(quo.getOrderedItem().getSpecifications());
+			orderedItemDTO.setCaculateUnit(quo.getOrderedItem().getCaculateUnit());
+			orderedItemDTO.setStatus(quo.getOrderedItem().getStatus().getName());
+			orderedItemDTO.setName(quo.getName());
+			if (quo.getOrderedItem().getNote() != null) {
+				orderedItemDTO.setNote(quo.getOrderedItem().getNote());
 			}
+			if (quo.getOrderedItem().getFilePathDrawing() != null) {
+//				orderedItemDTO.setFilePathDrawing(filePath + "/" + quo.getOrderedItem().getFilePathDrawing());
+				orderedItemDTO.setFilePathDrawing(quo.getOrderedItem().getFilePathDrawing());
+			}
+			orderedItemDTOs.add(orderedItemDTO);
 		});
-		// update status
-		for(Long idOrder : idOrders) {
-				List<UserNotification> userNotifications = userNotificationRepository
-						.findByOrderedItemIdAndUserId(idOrder, idUser);
-				if (userNotifications != null) {
-					userNotifications.forEach(userNotification -> {
-						userNotification.setViewed(true);
-						userNotificationRepository.save(userNotification);
-					});
-				}
-		}
 		return new PageImpl<OrderedItemDTO>(orderedItemDTOs, pageable, pageQuotations.getTotalElements());
 	}
 
@@ -175,11 +158,14 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 		historyQuotationRepository.save(historyQuotation);
 		//
 		orderedItem.setStatus(orderStatus);
+		if (orderedItemStatusDTO.getName().equals(OrderStatusConstant.Processing.getValue())) {
+			orderedItem.setProcessDate(LocalDateTime.now());
+		}
 		orderedItemRepository.save(orderedItem);
 
 		// create notification
 		logger.info("user id {} update status of item id {} !", userId, orderedItemStatusDTO.getId());
-		iNotificationService.createNotification(orderedItemStatusDTO.getId(), orderedItemStatusDTO.getName());
+		iNotificationService.createNotification(userId, orderedItemStatusDTO.getId(), orderedItemStatusDTO.getName());
 		// send mail
 		utilsCommon.sendEmail(user.getUsername(), orderedItem.getQuotation().getBoCode(),
 				orderedItem.getStatus().getName(), orderedItemStatusDTO.getName());
@@ -226,6 +212,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 		orderedItemDTO.setSpecifications(orderedItem.getSpecifications());
 		orderedItemDTO.setName(orderedItem.getQuotation().getName());
 		orderedItemDTO.setRealDeliveryDate(orderedItem.getRealDeliveryDate());
+		orderedItemDTO.setLate(orderedItem.isLate());
 		// map histories
 		List<HistoryDTO> orderedItemHistoris = new ArrayList<HistoryDTO>();
 		List<HistoryQuotation> historyQuotations = historyQuotationRepository
@@ -256,7 +243,7 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 	}
 
 	@Override
-	public OrderedItemDTO update(OrderedItemDTO orderDTO, MultipartFile file, Long idUser) {
+	public OrderedItemDTO update(OrderedItemDTO orderDTO, MultipartFile file, Long idUser, String dateSubmit) {
 		// TODO Auto-generated method stub
 		OrderedItem orderedItem = orderedItemRepository.findByQuotationId(orderDTO.getIdQuotation())
 				.orElseThrow(() -> new NotFoundException(MessageError.ORDERED_ITEM_NOT_FOUND));
@@ -322,8 +309,19 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 			flag = true;
 			if(orderDTO.getStatus().equals(OrderStatusConstant.WaitShip.getValue())) {
 				orderedItem.setRealDeliveryDate(LocalDateTime.now());
+				SimpleDateFormat format  =  new SimpleDateFormat("dd/MM/yyyy");
+				try {
+					Date dateDelivery = format.parse(orderedItem.getDeliveryDate());
+					Date dateSubmit2 = format.parse(dateSubmit);
+					if(dateSubmit2.after(dateDelivery)) {
+						orderedItem.setLate(true);
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			iNotificationService.createNotification(orderedItem.getId(), orderDTO.getStatus());
+			iNotificationService.createNotification(idUser, orderedItem.getId(), orderDTO.getStatus());
 			user = userRepository.findById(idUser)
 					.orElseThrow(() -> new NotFoundException(MessageError.USER_NOT_FOUND));
 			// send mail
@@ -386,10 +384,15 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 		//
 		OrderStatus status = orderStatusRepository.findByName(orderDTO.getStatus());
 		if (!orderDTO.getStatus().equals(orderedItem.getStatus().getName())) {
-			if (orderDTO.getStatus().equals(OrderStatusConstant.Processing.getValue())) {
-				orderedItem.setProcessDate(LocalDateTime.now());
+			if (orderDTO.getStatus().equals(OrderStatusConstant.Processing.getValue()) || orderDTO.getStatus().equals(OrderStatusConstant.FishedProcess.getValue())) {
+				if(orderedItem.getProcessDate() == null) {
+					orderedItem.setProcessDate(LocalDateTime.now());
+				}
 			} else if (orderDTO.getStatus().equals(OrderStatusConstant.WaitShip.getValue())) {
 				orderedItem.setRealDeliveryDate(LocalDateTime.now());
+				if(orderedItem.getProcessDate() == null) {
+					orderedItem.setProcessDate(LocalDateTime.now());
+				}
 			}
 		}
 		orderedItem.setStatus(status);

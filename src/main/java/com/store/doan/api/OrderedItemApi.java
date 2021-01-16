@@ -87,6 +87,7 @@ public class OrderedItemApi {
 			@RequestParam("email") String email, @RequestParam("address") String address, @RequestParam("boCode") String boCode,
 			@RequestParam("specifications") String specifications, @RequestParam("caculateUnit") String caculateUnit, @RequestParam("quantity") int quantity,
 			@RequestParam("deliveryDate") String deliveryDate,
+			@RequestParam("dateSubmit") String dateSubmit,
 			@RequestParam("price") String price, @RequestParam("note") String note, @RequestParam(name = "file", required = false) MultipartFile file) throws DocumentStorageException {
 		UserDetailsImpl userDetails =
 				(UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -117,7 +118,7 @@ public class OrderedItemApi {
 			orderedItemDTO.setNote(note);
 		if(!"null".equals(deliveryDate))
 			orderedItemDTO.setDeliveryDate(deliveryDate);
-		orderedItemDTO = iOrderedItemService.update(orderedItemDTO, file, userDetails.getId());
+		orderedItemDTO = iOrderedItemService.update(orderedItemDTO, file, userDetails.getId(), dateSubmit);
 		return orderedItemDTO;
 	}
 	

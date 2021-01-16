@@ -198,6 +198,8 @@ function SuppliesComponent(props) {
     const handleChangeRowsPerPage = (event) => {
         setLoad(true);
         let rowPer = parseInt(event.target.value);
+        console.log('value console:');
+        console.log(rowPer);
         setRowsPerPage(rowPer);
         setPage(0);
         getDataFromApi(0, rowPer, searchUserName, isDeleteByAdmin, typeFilter);
@@ -240,8 +242,8 @@ function SuppliesComponent(props) {
         setAnchorEl(null);
         QuotationService.getQuotations(page1, rowsPerPage1, fieldSearch, type, typeFilter1, orderStatus).then(result => {
             setLoad(false);
-            setQuotations(result.data.content);
-            settotalElements(result.data.totalElements);
+            setQuotations(result.content);
+            settotalElements(result.totalElements);
         }).catch(err =>{
             setLoad(false);
             setmessageResult("Máy chủ đang bị lỗi!");
@@ -348,29 +350,35 @@ function SuppliesComponent(props) {
         let local = moment(stillUtc).local().format('YYYY-MM-DD'); 
         return local;
     }
-    function handleColorForLate(strDateExpect, realDate){
+    function handleColorForLate(item, strDateExpect, realDate){
         if(typeFilter !== 'CONFIRM'){
             return 'white';
         }
-        let now;
-        if(strDateExpect !== null){
-            strDateExpect =  strDateExpect.split("/");
-            let dateExpect = new Date(strDateExpect[1] + "/" + strDateExpect[0] + "/" + strDateExpect[2]);
-            if(realDate === null || realDate === undefined){
-                
-                now = new Date();
+        if(item.statusOrder === 'Giao hàng'){
+            if(item.late === true){
+                return "red";
             }
-            else{
-                    now = covertUTCToCurrentTimezone(realDate);
-                    now = new Date(now);
-            }
-            if((now.getYear() === dateExpect.getYear()  && now.getMonth() > dateExpect.getMonth())
-                    || now.getYear() > dateExpect.getYear() || 
-                    (now.getYear() === dateExpect.getYear()  && now.getMonth() === dateExpect.getMonth() && now.getDate() > dateExpect.getDate())){
-                        return "red";
-                    }
         }
-        
+        else {
+            let now;
+            if(strDateExpect !== null){
+                strDateExpect =  strDateExpect.split("/");
+                let dateExpect = new Date(strDateExpect[1] + "/" + strDateExpect[0] + "/" + strDateExpect[2]);
+                if(realDate === null || realDate === undefined){
+                    
+                    now = new Date();
+                }
+                else{
+                        now = covertUTCToCurrentTimezone(realDate);
+                        now = new Date(now);
+                }
+                if((now.getYear() === dateExpect.getYear()  && now.getMonth() > dateExpect.getMonth())
+                        || now.getYear() > dateExpect.getYear() || 
+                        (now.getYear() === dateExpect.getYear()  && now.getMonth() === dateExpect.getMonth() && now.getDate() > dateExpect.getDate())){
+                            return "red";
+                        }
+            }
+        }
         return "white";
     }
     function handleBackgroundForOrderStatus(status){
@@ -447,13 +455,15 @@ function SuppliesComponent(props) {
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Số lượng</TableCell>
                         {(typeFilter === 'CONFIRM') && <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Tình trạng</TableCell>}
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Giá</TableCell>
-                        <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Ngày giao hàng dự kiến</TableCell>
+                        {
+                            (typeFilter === 'CONFIRM') && <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Ngày giao hàng dự kiến</TableCell>
+                        }
                         <TableCell align="center" style={{fontWeight:"bold", fontSize: "16px"}}>Hành động</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                 {quotations.map((row, index) => (
-                    <TableRow key={row.id} style={{backgroundColor: handleColorForLate(row.deliveryDate, row.realDeliveryDate)}}>
+                    <TableRow key={row.id} style={{backgroundColor: handleColorForLate(row, row.deliveryDate, row.realDeliveryDate)}}>
                         <TableCell component="th" scope="row" align="center" style ={{fontSize: "14px"}}>
                             {page*rowsPerPage + (index+1)}
                         </TableCell>
@@ -478,9 +488,12 @@ function SuppliesComponent(props) {
                         <TableCell align="center" style ={{fontSize: "14px"}}>
                             {row.price}
                         </TableCell>
-                        <TableCell align="center" style ={{fontSize: "14px"}}>
-                            {row.deliveryDate}
-                        </TableCell>
+                        {
+                            (typeFilter === 'CONFIRM') &&
+                            <TableCell align="center" style ={{fontSize: "14px"}}>
+                                {row.deliveryDate}
+                            </TableCell>
+                        }   
                         <TableCell align="center" style ={{fontSize: "14px"}}>
                             <Button
                                 aria-controls="customized-menu"
@@ -552,7 +565,7 @@ function SuppliesComponent(props) {
                 <TableFooter>
                 <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[5, 10, 25, { label: 'Tất cả', value: totalElements }]}
                     colSpan={12}
                     count={totalElements}
                     rowsPerPage={rowsPerPage}

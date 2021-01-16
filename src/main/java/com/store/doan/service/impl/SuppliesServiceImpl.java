@@ -133,7 +133,7 @@ public class SuppliesServiceImpl implements ISuppliesService{
 	public Page<SuppliesDTO> findProvider(String provider, Pageable pageable, boolean isDelete) {
 		// TODO Auto-generated method stub
 		provider = UtilsCommon.concatString("%", provider, "%");
-		Page<Supplies> pageSupplies = suppliesRepository.findByProviderLikeAndIsDeleteIs(provider, pageable, isDelete);
+		Page<Supplies> pageSupplies = suppliesRepository.findByNameLikeAndIsDeleteIs(provider, pageable, isDelete);
 		List<SuppliesDTO> suppliesDTOs = new ArrayList<SuppliesDTO>();
 		pageSupplies.getContent().forEach(supplies -> {
 			SuppliesDTO suppliesDTO = new SuppliesDTO();

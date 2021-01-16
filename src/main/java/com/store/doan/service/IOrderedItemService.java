@@ -26,7 +26,7 @@ public interface IOrderedItemService {
 
 	 List<OrderStatusDTO> findAllStatus();
 	 
-	 OrderedItemDTO update(OrderedItemDTO orderDTO, MultipartFile multipartFile, Long idUser);
+	 OrderedItemDTO update(OrderedItemDTO orderDTO, MultipartFile multipartFile, Long idUser, String dateSubmit);
 	 
 	 Resource loadFileAsResource(String fileName) throws Exception;
 	 

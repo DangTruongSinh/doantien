@@ -52,6 +52,8 @@ public class OrderedItem {
 	
 	private boolean isDelete = false;
 	
+	private boolean isLate = false;
+	
 	@Column(columnDefinition = "text")
 	private String note;
 	

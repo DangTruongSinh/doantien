@@ -2,7 +2,7 @@ import axios from './Config';
 
 class NotificationService {
     constructor() {
-        this.domain = 'http://leduyenanhquanly.xyz/notifications';
+        this.domain = 'https://leduyenanhquanly.xyz/notifications';
     }
 
     getNotifications(page, size, isView) {

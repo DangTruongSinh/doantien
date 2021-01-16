@@ -30,8 +30,11 @@ public class NotificationApi {
 		return iNotificationService.findAllIsViewed(userDetails.getId(), isView, pageable);
 	}
 	
-	@DeleteMapping("/notifications/{id}")
-	public void delete(@PathVariable Long id) {
-		 iNotificationService.delete(id);
+	@DeleteMapping("/notifications/{idOrder}")
+	public void delete(@PathVariable Long idOrder) {
+		UserDetailsImpl userDetails =
+				(UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 iNotificationService.delete(idOrder, userDetails.getId());
 	}
+	
 }
