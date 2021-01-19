@@ -12,7 +12,7 @@ import com.store.doan.dto.OrderedItemDTO;
 
 public interface IOrderedItemService {
 	
-	 Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser);
+	 Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser, String type);
 	
 	 
 	 

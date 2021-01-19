@@ -52,10 +52,10 @@ public class OrderedItemApi {
 	String filePath;
 	
 	@GetMapping("/orders")
-	public Page<OrderedItemDTO> paging(Pageable pageable, @RequestParam("boCode") String boCode){
+	public Page<OrderedItemDTO> paging(Pageable pageable, @RequestParam("boCode") String boCode, @RequestParam(required = false, name = "type", defaultValue = "All") String type){
 		UserDetailsImpl userDetails =
 				(UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return iOrderedItemService.findBySearch( pageable, boCode, userDetails.getId());
+		return iOrderedItemService.findBySearch( pageable, boCode, userDetails.getId(), type);
 	}
 	
 	@GetMapping("/orders/{id}")

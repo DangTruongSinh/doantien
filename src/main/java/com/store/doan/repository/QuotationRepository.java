@@ -19,6 +19,8 @@ public interface QuotationRepository extends JpaRepository<Quotation, Long>{
 	Page<Quotation> findByBoCodeLikeAndIsDeletedIsAndQuotationStatusNameLike(String boCode, Pageable pageable, boolean isDeleted, String quotationStatus);
 	
 	@Query(value = "select q from OrderedItem o left join Quotation q on o.quotation.id = q.id left join OrderStatus s on o.status.id = s.id where s.name in('Đang thi công', 'Chờ thi công', 'Thi công hoàn tất') and q.boCode like ?1 and o.isDelete = false")
-	Page<Quotation> findOrderByEngineering(String boCode, Pageable pageable);
+	Page<Quotation> findOrderByFullEngineering(String boCode, Pageable pageable);
+	@Query(value = "select q from OrderedItem o left join Quotation q on o.quotation.id = q.id left join OrderStatus s on o.status.id = s.id where s.name in(?2) and q.boCode like ?1 and o.isDelete = false")
+	Page<Quotation> findOrderByTypeEngineering(String boCode, String type, Pageable pageable);
 	List<Quotation> findByBoCodeLike(String name);
 }

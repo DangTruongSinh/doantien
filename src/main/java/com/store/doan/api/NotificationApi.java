@@ -37,4 +37,8 @@ public class NotificationApi {
 		 iNotificationService.delete(idOrder, userDetails.getId());
 	}
 	
+	@DeleteMapping("/notifications/delete/{id}")
+	public void deleteNo(@PathVariable Long id) {
+		iNotificationService.deleteNo(id);
+	}
 }

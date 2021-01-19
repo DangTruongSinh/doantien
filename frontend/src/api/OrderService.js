@@ -5,8 +5,8 @@ class OrderService {
         this.domain = 'https://leduyenanhquanly.xyz/orders';
         this.urlDownloadFile = `${this.domain}/downloadFile/`;
     }
-    paging(page, size, boCode) {
-        return fetch(`${this.domain}?page=${page}&size=${size}&boCode=${boCode}`, {
+    paging(page, size, boCode, type) {
+        return fetch(`${this.domain}?page=${page}&size=${size}&boCode=${boCode}&type=${type}`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('id_token')
             }

@@ -19,6 +19,14 @@ class NotificationService {
             }
         });
     }
+
+    delete(id) {
+        return axios.delete(`${this.domain}/delete/${id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+            }
+        });
+    }
 }
 
 

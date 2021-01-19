@@ -33,7 +33,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import Loader from '../../components/loader';
-
+import { FormControl, InputLabel, Select } from '@material-ui/core';
 const StyledMenu = withStyles({
     paper: {
         border: '1px solid #d3d4d5',
@@ -161,6 +161,7 @@ function OrdersComponent(props) {
     let [index, setIndex] =  useState(0);
     let [load, setLoad] = useState(false);
     let [statusSelect, setStatusSelect] =  useState("");
+    let [typeFilter, setTypeFilter] = useState("All");
 
     let boCode = props.match.params.boCode;
     if(boCode == undefined){
@@ -186,10 +187,10 @@ function OrdersComponent(props) {
         setSearchBoCode(boCode);
         getDataFromApi(page, rowsPerPage, boCode);
     }, []);
-    const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "") => {
+    const getDataFromApi =  (page1, rowsPerPage1, fieldSearch = "", type = "") => {
         setAnchorEl(null);
         console.log(rowsPerPage1);
-        OrderService.paging(page1, rowsPerPage1, fieldSearch).then(result => {
+        OrderService.paging(page1, rowsPerPage1, fieldSearch, type).then(result => {
             console.log(result);
             setOrders(result.content);
             settotalElements(result.totalElements);
@@ -256,10 +257,29 @@ function OrdersComponent(props) {
         })
         
     }
+    function handleChangeTypeFilter(type){
+        console.log('chay ne');
+        console.log("type ne: {}", type);
+        setTypeFilter(type);
+        getDataFromApi(page, rowsPerPage, serchBoCode, type);
+    }
     return (
         <>
         <div  style={{display:"flex"}}>
             <div style={{display:"flex", marginLeft: "auto"}}>
+            <FormControl variant="outlined" fullWidth={true} size="small" style={{width: "250px"}}>
+                <InputLabel htmlFor="outlined-age-native-simple">Trạng thái đơn hàng</InputLabel>
+                <Select
+                    native
+                    value={typeFilter}
+                    onChange={(e) => handleChangeTypeFilter(e.target.value)}
+                    label="Type Item">
+                        <option value="All">Tất cả</option>
+                        <option value="Đang thi công">Đang thi công</option>
+                        <option value="Chờ thi công">Chờ thi công</option>
+                        <option value="Thi công hoàn tất">Thi công hoàn tất</option>
+                </Select>
+            </FormControl>
                 <TextField size="small" value={serchBoCode} onChange={(e) => {setSearchBoCode(e.target.value)}} variant="outlined" style={{marginLeft: "10px"}} label="Nhập BBG Số"/>
                 <Button variant="contained" style={{backgroundColor: "#22349a", color:"white", marginLeft: "10px"}} onClick={handleSearch}>Tìm kiếm</Button>
             </div>

@@ -108,4 +108,10 @@ public class NotificationServiceImpl implements  INotificationService{
 		userNotificationRepository.save(userNotification);
 	}
 
+	@Override
+	public void deleteNo(Long id) {
+		// TODO Auto-generated method stub
+		userNotificationRepository.deleteById(id);
+	}
+
 }

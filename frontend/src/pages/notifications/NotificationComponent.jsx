@@ -151,7 +151,7 @@ function NotificationComponent(props) {
             isOpen: false
         });
         setLoad(true);
-        NotificationService.deleteByIdQuotation(id).then(result => {
+        NotificationService.delete(id).then(result => {
             setmessageResult("Xóa thành công");
             settypeAlert("success");
             setopenpopup(true);
@@ -172,6 +172,7 @@ function NotificationComponent(props) {
     }
     function handleGotoOrder(idQ, idOrder, idUser, boCode){
         if(isEngineering){
+            NotificationService.deleteByIdQuotation(idOrder);
             props.history.push(`/app/orders/${boCode}`);
             return;
         }

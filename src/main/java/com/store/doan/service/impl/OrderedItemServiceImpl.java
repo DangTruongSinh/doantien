@@ -100,10 +100,16 @@ public class OrderedItemServiceImpl implements IOrderedItemService {
 	}
 
 	@Override
-	public Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser) {
+	public Page<OrderedItemDTO> findBySearch(Pageable pageable, String boCode, Long idUser, String type) {
 		// TODO Auto-generated method stub
 		boCode = "%" + boCode + "%";
-		Page<Quotation> pageQuotations = quotationRepository.findOrderByEngineering(boCode, pageable);
+		Page<Quotation> pageQuotations;
+		if(type.equalsIgnoreCase("All")) {
+			pageQuotations = quotationRepository.findOrderByFullEngineering(boCode, pageable);
+		} else {
+			pageQuotations = quotationRepository.findOrderByTypeEngineering(boCode, type, pageable);
+		}
+		 
 		List<OrderedItemDTO> orderedItemDTOs = new ArrayList<OrderedItemDTO>();
 		Set<Long> idOrders = new HashSet<Long>();
 		pageQuotations.getContent().forEach(quo -> {

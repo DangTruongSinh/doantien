@@ -12,4 +12,6 @@ public interface INotificationService {
 	void delete(Long id, Long idUser);
 	
 	void createNotification(Long idUser, Long orderId, String status);
+	
+	void deleteNo(Long id);
 }

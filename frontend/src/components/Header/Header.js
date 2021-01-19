@@ -102,6 +102,10 @@ export default function Header(props) {
   function handleChangePassword(){
     setOpenResetPassword(true);
   }
+
+  function goToNotification(){
+    props.history.push(`/app/notifications`);
+  }
   return (
     <AppBar position="fixed" className={classes.appBar} style={{background: "#585757"}}>
       <Toolbar className={classes.toolbar}>
@@ -180,8 +184,8 @@ export default function Header(props) {
               <Notification {...x} typographyVariant="inherit" />
             </MenuItem>
           ))}
-          <MenuItem  key={100} className={classes.headerMenuItem}>
-            <Notification message={(size == 0) ? "Không có thông báo mới" :  size  + " thông báo chưa xem"} dividers typographyVariant="inherit" />
+          <MenuItem  key={100} className={classes.headerMenuItem} onClick={goToNotification}>
+            <Notification  message={(size == 0) ? "Không có thông báo mới" :  size  + " thông báo chưa xem"} dividers typographyVariant="inherit" />
           </MenuItem>
         </Menu>
         <Menu
